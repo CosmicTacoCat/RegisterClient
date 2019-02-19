@@ -16,6 +16,8 @@ import edu.uark.uarkregisterapp.models.api.enums.ApiObject;
 import edu.uark.uarkregisterapp.models.api.enums.ProductApiMethod;
 import edu.uark.uarkregisterapp.models.api.interfaces.PathElementInterface;
 
+//Need to create an EmployeeService class to allow for restful web services
+
 public class ProductService extends BaseRemoteService {
 	public ApiResponse<Product> getProduct(UUID productId) {
 		return this.readProductDetailsFromResponse(
