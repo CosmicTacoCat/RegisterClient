@@ -54,6 +54,7 @@ public class ProductViewActivity extends AppCompatActivity {
 	protected void onResume() {
 		super.onResume();
 
+		// This is why the trash icon in not present when creating a product.
 		if (!this.productTransition.getId().equals(new UUID(0, 0))) {
 			this.getDeleteImageButton().setVisibility(View.VISIBLE);
 		} else {
