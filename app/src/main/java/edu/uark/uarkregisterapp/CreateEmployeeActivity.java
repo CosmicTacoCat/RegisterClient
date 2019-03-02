@@ -36,7 +36,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         }
 
         (new CreateEmployeeActivity.SaveEmployeeTask()).execute();
-        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
+        //this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
     }
 
     private EditText getEmployeeFirstNameEditText() {
@@ -135,6 +135,10 @@ public class CreateEmployeeActivity extends AppCompatActivity {
 
             if (successfulSave) {
                 message = "Employee Save Successful";
+                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
+                startActivity(intent);
+                finish();
             } else {
                 message = "Employee Save Failure";
             }
