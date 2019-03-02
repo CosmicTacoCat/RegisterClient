@@ -51,6 +51,10 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         return (EditText) this.findViewById(R.id.edit_text_employee_password);
     }
 
+    private EditText getEmployeeIdEditText() {
+        return (EditText) this.findViewById(R.id.edit_text_employee_id);
+    }
+
     private boolean validateInput() {
         boolean inputIsValid = true;
         String validationMessage = StringUtils.EMPTY;
@@ -67,6 +71,11 @@ public class CreateEmployeeActivity extends AppCompatActivity {
 
         if (StringUtils.isBlank(this.getEmployeePasswordEditText().getText().toString())) {
             validationMessage = "Password can not be empty";
+            inputIsValid = false;
+        }
+
+        if (StringUtils.isBlank(this.getEmployeeIdEditText().getText().toString())) {
+            validationMessage = "Employee ID can not be empty";
             inputIsValid = false;
         }
 
@@ -99,6 +108,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
             Employee employee = (new Employee()).
                     setFirst_Name(getEmployeeFirstNameEditText().getText().toString()).
                     setLast_Name(getEmployeeLastNameEditText().getText().toString()).
+                    setEmployee_Id(getEmployeeIdEditText().getText().toString()).
                     setPassword(getEmployeePasswordEditText().getText().toString());
 
             ApiResponse<Employee> apiResponse = (
@@ -110,6 +120,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
             if (apiResponse.isValidResponse()) {
                 employeeTransition.setFirst_Name(apiResponse.getData().getFirst_Name());
                 employeeTransition.setLast_Name(apiResponse.getData().getLast_Name());
+                employeeTransition.setEmployee_Id(apiResponse.getData().getEmployee_Id());
                 employeeTransition.setPassword(apiResponse.getData().getPassword());
             }
 
