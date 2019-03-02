@@ -20,10 +20,10 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		UUID record_id
 		String first_name
 		String last_name
-		int employee_id
+		String employee_id
 		String active
 		String title
-		int manager
+		String manager
 		String password
 	*/	
 
@@ -127,21 +127,26 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 
 	//TODO: Figure out what to do about EmployeeFieldName EmployeeListingFieldName
 	//	Because this methods need those.
-	/*
+	
 	@Override
-	public Product loadFromJson(JSONObject rawJsonObject) {
-		String value = rawJsonObject.optString(ProductFieldName.ID.getFieldName());
+	public Employee loadFromJson(JSONObject rawJsonObject) {
+		String value = rawJsonObject.optString(EmployeeFieldName.RECORD_ID.getFieldName());
 		if (!StringUtils.isBlank(value)) {
-			this.id = UUID.fromString(value);
+			this.record_id = UUID.fromString(value);
 		}
 
-		this.lookupCode = rawJsonObject.optString(ProductFieldName.LOOKUP_CODE.getFieldName());
-		this.count = rawJsonObject.optInt(ProductFieldName.COUNT.getFieldName());
+		this.first_name = rawJsonObject.optString(EmployeeFieldName.FIRST_NAME.getFieldName());
+		this.last_name = rawJsonObject.optString(EmployeeFieldName.LAST_NAME.getFieldName());
+		this.employee_id = rawJsonObject.optString(EmployeeFieldName.EMPLOYEE_ID.getFieldName());
+		this.active = rawJsonObject.optString(EmployeeFieldName.ACTIVE.getFieldName());
+		this.title = rawJsonObject.optString(EmployeeFieldName.TITLE.getFieldName());
+		this.manager = rawJsonObject.optString(EmployeeFieldName.MANAGER.getFieldName());
+		this.password = rawJsonObject.optString(EmployeeFieldName.PASSWORD.getFieldName());
 
-		value = rawJsonObject.optString(ProductFieldName.CREATED_ON.getFieldName());
+		value = rawJsonObject.optString(EmployeeFieldName.CREATED.getFieldName());
 		if (!StringUtils.isBlank(value)) {
 			try {
-				this.createdOn = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US).parse(value);
+				this.created = new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US).parse(value);
 			} catch (ParseException e) {
 				e.printStackTrace();
 			}
@@ -155,17 +160,22 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		JSONObject jsonObject = new JSONObject();
 
 		try {
-			jsonObject.put(ProductFieldName.ID.getFieldName(), this.id.toString());
-			jsonObject.put(ProductFieldName.LOOKUP_CODE.getFieldName(), this.lookupCode);
-			jsonObject.put(ProductFieldName.COUNT.getFieldName(), this.count);
-			jsonObject.put(ProductFieldName.CREATED_ON.getFieldName(), (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US)).format(this.createdOn));
+			jsonObject.put(EmployeeFieldName.RECORD_ID.getFieldName(), this.record_id.toString());
+			jsonObject.put(EmployeeFieldName.FIRST_NAME.getFieldName(), this.first_name);
+			jsonObject.put(EmployeeFieldName.LAST_NAME.getFieldName(), this.last_name);
+			jsonObject.put(EmployeeFieldName.EMPLOYEE_ID.getFieldName(), this.employee_id);
+			jsonObject.put(EmployeeFieldName.ACTIVE.getFieldName(), this.active);
+			jsonObject.put(EmployeeFieldName.TITLE.getFieldName(), this.title);
+			jsonObject.put(EmployeeFieldName.MANAGER.getFieldName(), this.manager);
+			jsonObject.put(EmployeeFieldName.PASSWORD.getFieldName(), this.password);
+			jsonObject.put(EmployeeFieldName.CREATED.getFieldName(), (new SimpleDateFormat("yyyy-MM-dd'T'HH:mm:ss.SSS", Locale.US)).format(this.created));
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
 
 		return jsonObject;
 	}
-	*/
+	
 
 	public Employee() {
 		this.record_id = new UUID(0, 0);
@@ -176,7 +186,7 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		this.title = "";
 		this.manager = "";
 		this.password = "";
-		this.createdOn = new Date();
+		this.created = new Date();
 	}
 
 	public Employee(EmployeeTransition employeeTransition) {
@@ -188,7 +198,7 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		this.title = employeeTransition.getTitle();
 		this.manager = employeeTransition.getManager();
 		this.password = employeeTransition.getPassword();
-		this.createdOn = employeeTransition.getCreatedOn();
+		this.created = employeeTransition.getCreated();
 	}
 }
 
