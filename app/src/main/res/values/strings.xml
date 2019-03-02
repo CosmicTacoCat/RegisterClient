@@ -44,4 +44,5 @@
     <string name="sales_report_cashier">Sales Report: Cashier</string>
     <string name="log_out">Log Out</string>
     <string name="please_create_your_first_user">Please create your first user</string>
+    <string name="employee_welcome">Welcome %1$s! What would you like to do next?</string>
 </resources>

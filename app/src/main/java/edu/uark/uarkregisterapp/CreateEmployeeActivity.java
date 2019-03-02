@@ -1,6 +1,7 @@
 package edu.uark.uarkregisterapp;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.AsyncTask;
 import android.support.v7.app.AlertDialog;
 import android.support.v7.app.AppCompatActivity;
@@ -14,8 +15,11 @@ import org.apache.commons.lang3.StringUtils;
 import java.util.UUID;
 
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
+import edu.uark.uarkregisterapp.models.api.Employee;
 import edu.uark.uarkregisterapp.models.api.Product;
+import edu.uark.uarkregisterapp.models.api.services.EmployeeService;
 import edu.uark.uarkregisterapp.models.api.services.ProductService;
+import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
 import edu.uark.uarkregisterapp.models.transition.ProductTransition;
 
 public class CreateEmployeeActivity extends AppCompatActivity {
@@ -32,6 +36,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         }
 
         (new CreateEmployeeActivity.SaveEmployeeTask()).execute();
+        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class))
     }
 
     private EditText getEmployeeFirstNameEditText() {
@@ -92,9 +97,9 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         @Override
         protected Boolean doInBackground(Void... params) {
             Employee employee = (new Employee()).
-                    setFirstName(getEmployeeFirstNameEditText().getText().toString()).
-                    setLookupCode(getEmployeeLastNameEditText().getText().toString()).
-                    setCount(getEmployeePasswordEditText().getText().toString()));
+                    setFirst_Name(getEmployeeFirstNameEditText().getText().toString()).
+                    setLast_Name(getEmployeeLastNameEditText().getText().toString()).
+                    setPassword(getEmployeePasswordEditText().getText().toString()));
 
             ApiResponse<Employee> apiResponse = (
                     (employee.getId().equals(new UUID(0, 0)))
@@ -103,8 +108,8 @@ public class CreateEmployeeActivity extends AppCompatActivity {
             );
 
             if (apiResponse.isValidResponse()) {
-                employeeTransition.setFirstName(apiResponse.getData().getFirstName());
-                employeeTransition.setLastName(apiResponse.getData().getLastName());
+                employeeTransition.setFirst_Name(apiResponse.getData().getFirst_Name());
+                employeeTransition.setLast_Name(apiResponse.getData().getLast_Name());
                 employeeTransition.setPassword(apiResponse.getData().getPassword());
             }
 
