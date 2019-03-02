@@ -1,6 +1,6 @@
 package edu.uark.uarkregisterapp;
 
-
+import android.content.Intent;
 import android.content.DialogInterface;
 import android.os.AsyncTask;
 import android.os.Bundle;
@@ -14,7 +14,11 @@ import android.widget.EditText;
 
 import org.apache.commons.lang3.StringUtils;
 
-//import local packages. For example, EmployeeTransition
+import edu.uark.uarkregisterapp.models.api.ApiResponse;
+import edu.uark.uarkregisterapp.models.api.Employee;
+import edu.uark.uarkregisterapp.models.api.services.EmployeeService;
+import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
+
 
 // this activity is currently configured to be launched from the main activity.
 public class LoginActivity extends AppCompatActivity {
@@ -28,9 +32,12 @@ public class LoginActivity extends AppCompatActivity {
         ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
+
+            this.employeeTransition = new EmployeeTransition();
         }
 
-        //TODO: possibly get an employee transistion intent here.
+
+
         //TODO: Query the server to see if an initial employee must be created first.
     }
 
@@ -49,11 +56,14 @@ public class LoginActivity extends AppCompatActivity {
     // This button in this activity's xml file specifies a function to call when clicked.
     // That seems to prevent the need to manually create a button object and register it with an on-click listener.
     public void loginButtonOnClick(View view) {
-        if (!validateInput()) {
-            return;
-        }
+        if (!validateInput()) { return; }
 
         (new employeeLoginTask()).execute();
+    }
+
+    //TODO: disable this function and button for release
+    public void devSkipLogin(View view) {
+        //this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
     }
 
     private EditText getEmployeeIDEditText() {
@@ -100,6 +110,7 @@ public class LoginActivity extends AppCompatActivity {
         return inputIsValid;
     }
 
+    //TODO: Make sure this class is extending the AsyncTask class properly for login.
     private class employeeLoginTask extends AsyncTask<Void, Void, Boolean> {
         @Override
         protected void onPreExecute() {
@@ -109,62 +120,32 @@ public class LoginActivity extends AppCompatActivity {
 
         //TODO: make sure Employee, EmployeeTransition and EmployeeService classes have been created.
         //TODO: set this up for employee login usage.
-        /*@Override
-        protected Boolean doInBackground(Void... params) {
-            Employee employee = (new Employee()).
-                    setId(employeeTransition.getId()).
-                    setLookupCode(getProductLookupCodeEditText().getText().toString()).
-                    setCount(Integer.parseInt(getProductCountEditText().getText().toString()));
-
-            ApiResponse<Product> apiResponse = (
-                    (product.getId().equals(new UUID(0, 0)))
-                            ? (new ProductService()).createProduct(product)
-                            : (new ProductService()).updateProduct(product)
-            );
-
-            if (apiResponse.isValidResponse()) {
-                productTransition.setCount(apiResponse.getData().getCount());
-                productTransition.setLookupCode(apiResponse.getData().getLookupCode());
-            }
-
-            return apiResponse.isValidResponse();
-        }*/
-
-
-				// Remove this block after the employee classes are finished
         @Override
         protected Boolean doInBackground(Void... params) {
-            return false;
+            Employee employee = (new Employee()).
+                    setEmployee_Id(getEmployeeIDEditText().getText().toString()).
+                    setPassword(getEmployeePasswordEditText().getText().toString());
+
+            //TODO: Make EmployeeService. In that, make loginEmployee() in place of createProduct(). See ProductService for reference.
+            ApiResponse<Employee> apiResponse = new EmployeeService().loginEmployee(employee);
+            if (apiResponse.isValidResponse()) {
+                //currently assuming the server will send the employee data in this apiresponse.
+                employeeTransition.setEmployee_Id(apiResponse.getData().getEmployee_Id());
+                employeeTransition.setFirst_Name(apiResponse.getData().getFirst_Name());
+                //TODO: Add finish setting the rest of the employeeTransition's data.
+            }
+
+            //TODO: perhaps return a value representing whether or not the server allowed login.
+            return apiResponse.isValidResponse();
         }
 
         @Override
-        protected void onPostExecute(Boolean successfulLogin) {
-            String message;
+        protected void onPostExecute(Boolean successfulSave) {
+            if (successfulSave) {
+                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
 
-            employeeLoginAlert.dismiss();
-
-            if (successfulLogin) { 
-								message = "sampletext"; // Remove this line after the employee classes are finished
-                //TODO: finish activity. Send an intent with employee info.
-                // If this activity was launched by another activity, send back the intent and make sure this activity was launched
-                // using the startActivityForResult() method rather than startActivity().
-            } else {
-                message = getString(R.string.alert_dialog_employee_login_failure);
-                }
-
-                new AlertDialog.Builder(LoginActivity.this).
-                        setMessage(message).
-                        setPositiveButton(
-                                R.string.button_dismiss,
-                                new DialogInterface.OnClickListener() {
-                                    public void onClick(DialogInterface dialog, int id) {
-                                        dialog.dismiss();
-                                    }
-                                }
-                        ).
-                        create().
-                        show();
-
+                intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
+            }
         }
 
         private AlertDialog employeeLoginAlert;
@@ -176,5 +157,5 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
-    //private EmployeeTransition employeeTransition;
+    private EmployeeTransition employeeTransition;
 }

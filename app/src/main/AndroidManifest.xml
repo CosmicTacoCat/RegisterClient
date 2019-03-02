@@ -12,13 +12,7 @@
         android:theme="@style/AppTheme">
         <activity android:name=".CreateEmployeeActivity"></activity>
         <activity android:name=".MainMenuActivity" />
-        <activity android:name=".LandingActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.MAIN" />
-
-                <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
-        </activity>
+        <activity android:name=".LandingActivity"></activity>
         <activity
             android:name=".ProductsListingActivity"
             android:label="@string/title_activity_products_listing"
@@ -31,11 +25,16 @@
         <activity
             android:name=".ProductViewActivity"
             android:label="@string/title_activity_product_view"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
     </application>
-
 </manifest>
