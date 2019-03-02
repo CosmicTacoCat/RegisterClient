@@ -10,7 +10,7 @@ import java.util.Date;
 import java.util.Locale;
 import java.util.UUID;
 
-//import edu.uark.uarkregisterapp.models.api.fields.ProductFieldName; //Do we need an Employee version of this?
+import edu.uark.uarkregisterapp.models.api.fields.EmployeeFieldName;
 import edu.uark.uarkregisterapp.models.api.interfaces.ConvertToJsonInterface;
 import edu.uark.uarkregisterapp.models.api.interfaces.LoadFromJsonInterface;
 import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
@@ -114,13 +114,13 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		return this;
 	}
 
-	private Date createdOn;
-	public Date getCreatedOn() {
-		return this.createdOn;
+	private Date created;
+	public Date getCreated() {
+		return this.created;
 	}
 
-	public Employee setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
+	public Employee setCreated(Date created) {
+		this.created = created;
 		return this;
 	}
 
@@ -191,7 +191,7 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 
 	public Employee(EmployeeTransition employeeTransition) {
 		this.record_id = employeeTransition.getId();
-		this.first_name = employeeTransition.getFirst_Name()
+		this.first_name = employeeTransition.getFirst_Name();
 		this.last_name = employeeTransition.getLast_Name();
 		this.employee_id = employeeTransition.getEmployee_Id();
 		this.active = employeeTransition.getActive();

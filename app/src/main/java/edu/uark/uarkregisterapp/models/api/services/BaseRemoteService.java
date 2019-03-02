@@ -27,6 +27,10 @@ abstract class BaseRemoteService {
 		return this.buildPath((new PathElementInterface[0]), recordId.toString());
 	}
 
+	URL buildPath(String employee_id) {
+		return this.buildPath((new PathElementInterface[0]), employee_id);
+	}
+
 	URL buildPath(PathElementInterface[] pathElements, String parameterValue) {
 		StringBuilder completePath = (new StringBuilder(BASE_URL))
 				.append(this.apiObject.getPathValue());

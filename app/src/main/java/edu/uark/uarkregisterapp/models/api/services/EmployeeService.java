@@ -13,15 +13,37 @@ import java.util.UUID;
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
 import edu.uark.uarkregisterapp.models.api.Employee;
 import edu.uark.uarkregisterapp.models.api.enums.ApiObject;
-import edu.uark.uarkregisterapp.models.api.enums.ProductApiMethod;
+import edu.uark.uarkregisterapp.models.api.enums.EmployeeApiMethod;
 import edu.uark.uarkregisterapp.models.api.interfaces.PathElementInterface;
 
 public class EmployeeService extends BaseRemoteService {
 
+    public ApiResponse<Employee> createEmployee(Employee employee) {
+        return this.readEmployeeDetailsFromResponse(
+                this.<Employee>performPostRequest(
+                        this.buildPath(), employee.convertToJson()
+                )
+        );
+    }
+
+
+    public ApiResponse<Employee> getEmployee(String employee_id) {
+        return this.readEmployeeDetailsFromResponse(
+                this.<Employee>performGetRequest(
+                        this.buildPath(employee_id)
+                )
+        );
+    }
+
+    //getEmployees method here
+
+    //check employee existence method here
+
+
     //POSTs the employee id and password to the server and receives its response, which should contain a json.
     // Then the employee's details are read from that response.
     //I'm not sure if this response from the server will contain the employee's data.
-    public ApiResponse<Employee> loginEmployee(Employee employee) {
+    public ApiResponse<Employee> EmployeeLogin(Employee employee) {
         return this.readEmployeeDetailsFromResponse(
                 this.<Employee>performPostRequest(
                         this.buildPath(), employee.convertToJson()
@@ -39,8 +61,9 @@ public class EmployeeService extends BaseRemoteService {
             apiResponse.setData(
                     (new Employee()).loadFromJson(rawJsonObject)
             );
-
+        }
         return apiResponse;
     }
 
+    public EmployeeService() {super(ApiObject.EMPLOYEE);}
 }

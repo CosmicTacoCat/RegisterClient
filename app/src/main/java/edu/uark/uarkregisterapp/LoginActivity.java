@@ -32,12 +32,10 @@ public class LoginActivity extends AppCompatActivity {
         ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
             actionBar.setDisplayHomeAsUpEnabled(true);
-
-            this.employeeTransition = new EmployeeTransition();
         }
 
 
-
+        this.employeeTransition = new EmployeeTransition();
         //TODO: Query the server to see if an initial employee must be created first.
     }
 
@@ -126,22 +124,28 @@ public class LoginActivity extends AppCompatActivity {
                     setEmployee_Id(getEmployeeIDEditText().getText().toString()).
                     setPassword(getEmployeePasswordEditText().getText().toString());
 
-            //TODO: Make EmployeeService. In that, make loginEmployee() in place of createProduct(). See ProductService for reference.
-            ApiResponse<Employee> apiResponse = new EmployeeService().loginEmployee(employee);
+            ApiResponse<Employee> apiResponse = new EmployeeService().EmployeeLogin(employee);
+
+
             if (apiResponse.isValidResponse()) {
                 //currently assuming the server will send the employee data in this apiresponse.
                 employeeTransition.setEmployee_Id(apiResponse.getData().getEmployee_Id());
                 employeeTransition.setFirst_Name(apiResponse.getData().getFirst_Name());
-                //TODO: Add finish setting the rest of the employeeTransition's data.
+                employeeTransition.setLast_Name(apiResponse.getData().getLast_Name());
+                employeeTransition.setActive(apiResponse.getData().getActive());
+                employeeTransition.setTitle(apiResponse.getData().getTitle());
+                employeeTransition.setManager(apiResponse.getData().getManager());
+                employeeTransition.setPassword(apiResponse.getData().getPassword());
+                employeeTransition.setCreated(apiResponse.getData().getCreated()); //Wait for push.
             }
 
-            //TODO: perhaps return a value representing whether or not the server allowed login.
+            //TODO: perhaps return a value representing whether or not the server allowed login. apiResponse.getdata().getValidLogin() ?
             return apiResponse.isValidResponse();
         }
 
         @Override
-        protected void onPostExecute(Boolean successfulSave) {
-            if (successfulSave) {
+        protected void onPostExecute(Boolean successfulLogin) {
+            if (successfulLogin) {
                 Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
 
                 intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
