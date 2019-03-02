@@ -101,24 +101,23 @@ public class EmployeeTransition implements Parcelable {
 		return this;
 	}
 
-	private Date createdOn;
-	public Date getCreatedOn() {
-		return this.createdOn;
+	private Date created;
+	public Date getCreated() {
+		return this.created;
 	}
 
-	public EmployeeTransition setCreatedOn(Date createdOn) {
-		this.createdOn = createdOn;
+	public EmployeeTransition setCreated(Date created) {
+		this.created = created;
 		return this;
 	}
 
 	//TODO: Convert this to be used with EmployeeTransition.
-/*
+
 	@Override
 	public void writeToParcel(Parcel destination, int flags) {
-		destination.writeByteArray((new UUIDToByteConverterCommand()).setValueToConvert(this.id).execute());
-		destination.writeString(this.lookupCode);
-		destination.writeInt(this.count);
-		destination.writeLong(this.createdOn.getTime());
+		destination.writeByteArray((new UUIDToByteConverterCommand()).setValueToConvert(this.record_id).execute());
+		destination.writeString(this.employee_id);
+		destination.writeLong(this.created.getTime());
 	}
 
 	@Override
@@ -126,27 +125,17 @@ public class EmployeeTransition implements Parcelable {
 		return 0;
 	}
 
-	public static final Parcelable.Creator<ProductTransition> CREATOR = new Parcelable.Creator<ProductTransition>() {
-		public ProductTransition createFromParcel(Parcel productTransitionParcel) {
-			return new ProductTransition(productTransitionParcel);
-		}
-
-		public ProductTransition[] newArray(int size) {
-			return new ProductTransition[size];
-		}
-	};
-
-
-	public static final Parcelable.Creator<EmployeeTransition> = new Parcelable.Creator<EmployeeTransition>() {
-		public EmployeeTransition createFromParcel(Parcel EmployeeTransitionParcel) {
-			return new EmployeeTransition(EmployeeTransitionParcel);
+	public static final Parcelable.Creator<EmployeeTransition> CREATOR = new Parcelable.Creator<EmployeeTransition>() {
+		public EmployeeTransition createFromParcel(Parcel employeeTransitionParcel) {
+			return new EmployeeTransition(employeeTransitionParcel);
 		}
 
 		public EmployeeTransition[] newArray(int size) {
 			return new EmployeeTransition[size];
 		}
 	};
-*/
+
+
 
 // Constructors ////
 	public EmployeeTransition() {
@@ -158,7 +147,7 @@ public class EmployeeTransition implements Parcelable {
 		this.title = "";
 		this.manager = "";
 		this.password = "";
-		this.createdOn = new Date();
+		this.created = new Date();
 	}
 
 	public EmployeeTransition(Employee employee) {
@@ -170,20 +159,21 @@ public class EmployeeTransition implements Parcelable {
 		this.title = employee.getTitle();
 		this.manager = employee.getManager();
 		this.password = employee.getPassword();
-		this.createdOn = employee.getCreatedOn();
+		this.created = employee.getCreatedOn();
 	}
 
 	private EmployeeTransition(Parcel EmployeeTransitionParcel) {
-		/*
+
 		//TODO: set this up.
-		this.record_id = new UUID(0, 0);
-		this.first_name = "";
-		this.last_name = "";
-		this.employee_id = -1;
-		this.active = ""l
-		this.title = "";
-		this.manager = -1;
-		this.password = "";
-		this.createdOn = new Date();*/
+		this.record_id = (new ByteToUUIDConverterCommand()).setValueToConvert(EmployeeTransitionParcel.createByteArray()).execute();
+		this.first_name = EmployeeTransitionParcel.readString();
+		this.last_name = EmployeeTransitionParcel.readString();
+		this.employee_id = EmployeeTransitionParcel.readString();
+		this.active = EmployeeTransitionParcel.readString();
+		this.title = EmployeeTransitionParcel.readString();
+		this.manager = EmployeeTransitionParcel.readString();
+		this.password = EmployeeTransitionParcel.readString();
+		this.created = new Date();
+		this.created.setTime(EmployeeTransitionParcel.readLong());
 	}
 }
