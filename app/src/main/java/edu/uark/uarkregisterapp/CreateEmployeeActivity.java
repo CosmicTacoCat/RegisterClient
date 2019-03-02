@@ -36,7 +36,7 @@ public class CreateEmployeeActivity extends AppCompatActivity {
         }
 
         (new CreateEmployeeActivity.SaveEmployeeTask()).execute();
-        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class))
+        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
     }
 
     private EditText getEmployeeFirstNameEditText() {
@@ -99,12 +99,12 @@ public class CreateEmployeeActivity extends AppCompatActivity {
             Employee employee = (new Employee()).
                     setFirst_Name(getEmployeeFirstNameEditText().getText().toString()).
                     setLast_Name(getEmployeeLastNameEditText().getText().toString()).
-                    setPassword(getEmployeePasswordEditText().getText().toString()));
+                    setPassword(getEmployeePasswordEditText().getText().toString());
 
             ApiResponse<Employee> apiResponse = (
                     (employee.getId().equals(new UUID(0, 0)))
                             ? (new EmployeeService()).createEmployee(employee)
-                            : (new EmployeeService()).updateEmployee(employee)
+                            : (new EmployeeService()).createEmployee(employee) //TODO undo my shit.//(new EmployeeService()).updateEmployee(employee)
             );
 
             if (apiResponse.isValidResponse()) {

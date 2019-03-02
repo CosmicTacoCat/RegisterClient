@@ -39,30 +39,34 @@ public class LoginActivity extends AppCompatActivity {
         //TODO: Query the server to see if an initial employee must be created first.
     }
 
-    @Override
-    public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:  // Respond to the action bar's Up/Home button
-                this.finish();
 
-                return true;
-        }
-
-        return super.onOptionsItemSelected(item);
-    }
-
-    // This button in this activity's xml file specifies a function to call when clicked.
-    // That seems to prevent the need to manually create a button object and register it with an on-click listener.
     public void loginButtonOnClick(View view) {
         if (!validateInput()) { return; }
 
         (new employeeLoginTask()).execute();
     }
 
+
+
     //TODO: disable this function and button for release
     public void devSkipLogin(View view) {
-        //this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
+        Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+        intent.putExtra(
+                getString(R.string.intent_extra_employee),
+                new EmployeeTransition()
+        );
+        this.startActivity(intent);
     }
+
+
+    public void devSkipLogin2(View view) {
+        Intent intent = new Intent(getApplicationContext(), CreateEmployeeActivity.class);
+        this.startActivity(intent);
+    }
+
+
+
+
 
     private EditText getEmployeeIDEditText() {
         return (EditText) this.findViewById(R.id.edit_text_login);
@@ -143,13 +147,38 @@ public class LoginActivity extends AppCompatActivity {
             return apiResponse.isValidResponse();
         }
 
+        //Successful login sends employee data to main menu activity and kills this activity.
         @Override
         protected void onPostExecute(Boolean successfulLogin) {
-            if (successfulLogin) {
-                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+            String message;
+            employeeLoginAlert.dismiss();
 
+
+            if (successfulLogin) {
+                /*Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
                 intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
+                startActivity(intent);
+                this.finish();
+                */
+
+                message = "Login success";
             }
+            else {
+                message = "login FAIL";
+            }
+
+            new AlertDialog.Builder(LoginActivity.this).
+                    setMessage(message).
+                    setPositiveButton(
+                            R.string.button_dismiss,
+                            new DialogInterface.OnClickListener() {
+                                public void onClick(DialogInterface dialog, int id) {
+                                    dialog.dismiss();
+                                }
+                            }
+                    ).
+                    create().
+                    show();
         }
 
         private AlertDialog employeeLoginAlert;

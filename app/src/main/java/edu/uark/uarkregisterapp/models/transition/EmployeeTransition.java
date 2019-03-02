@@ -159,7 +159,7 @@ public class EmployeeTransition implements Parcelable {
 		this.title = employee.getTitle();
 		this.manager = employee.getManager();
 		this.password = employee.getPassword();
-		this.created = employee.getCreatedOn();
+		this.created = employee.getCreated();
 	}
 
 	private EmployeeTransition(Parcel EmployeeTransitionParcel) {

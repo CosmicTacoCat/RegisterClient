@@ -38,6 +38,9 @@ public class EmployeeService extends BaseRemoteService {
     //getEmployees method here
 
     //check employee existence method here
+    /*public ApiResponse<Employee> checkEmployeeExistance() {
+
+    }*/
 
 
     //POSTs the employee id and password to the server and receives its response, which should contain a json.

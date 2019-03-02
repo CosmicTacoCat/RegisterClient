@@ -11,7 +11,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity android:name=".CreateEmployeeActivity"></activity>
-        <activity android:name=".MainMenuActivity" />
+        <activity
+            android:name=".MainMenuActivity"
+            android:theme="@style/AppTheme.NoActionBar">
+        </activity>
         <activity android:name=".LandingActivity"></activity>
         <activity
             android:name=".ProductsListingActivity"
