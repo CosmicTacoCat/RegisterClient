@@ -116,8 +116,14 @@ public class EmployeeTransition implements Parcelable {
 	@Override
 	public void writeToParcel(Parcel destination, int flags) {
 		destination.writeByteArray((new UUIDToByteConverterCommand()).setValueToConvert(this.record_id).execute());
+		destination.writeString(this.first_name);
+		destination.writeString(this.last_name);
 		destination.writeString(this.employee_id);
 		destination.writeLong(this.created.getTime());
+		destination.writeString(this.active);
+		destination.writeString(this.title);
+		destination.writeString(this.manager);
+		destination.writeString(this.password);
 	}
 
 	@Override
