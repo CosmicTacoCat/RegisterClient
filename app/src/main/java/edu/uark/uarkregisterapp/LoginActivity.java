@@ -155,30 +155,28 @@ public class LoginActivity extends AppCompatActivity {
 
 
             if (successfulLogin) {
-                /*Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
+                Intent intent = new Intent(getApplicationContext(), MainMenuActivity.class);
                 intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
                 startActivity(intent);
-                this.finish();
-                */
-
-                message = "Login success";
+                finish();
             }
             else {
+
                 message = "login FAIL";
+                new AlertDialog.Builder(LoginActivity.this).
+                        setMessage(message).
+                        setPositiveButton(
+                                R.string.button_dismiss,
+                                new DialogInterface.OnClickListener() {
+                                    public void onClick(DialogInterface dialog, int id) {
+                                        dialog.dismiss();
+                                    }
+                                }
+                        ).
+                        create().
+                        show();
             }
 
-            new AlertDialog.Builder(LoginActivity.this).
-                    setMessage(message).
-                    setPositiveButton(
-                            R.string.button_dismiss,
-                            new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int id) {
-                                    dialog.dismiss();
-                                }
-                            }
-                    ).
-                    create().
-                    show();
         }
 
         private AlertDialog employeeLoginAlert;

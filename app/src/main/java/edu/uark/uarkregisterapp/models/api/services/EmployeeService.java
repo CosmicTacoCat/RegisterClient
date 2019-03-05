@@ -21,7 +21,9 @@ public class EmployeeService extends BaseRemoteService {
     public ApiResponse<Employee> createEmployee(Employee employee) {
         return this.readEmployeeDetailsFromResponse(
                 this.<Employee>performPostRequest(
-                        this.buildPath(), employee.convertToJson()
+                        this.buildPath(
+                                (new PathElementInterface[]{EmployeeApiMethod.CREATE}), "")
+                        , employee.convertToJson()
                 )
         );
     }
@@ -49,7 +51,9 @@ public class EmployeeService extends BaseRemoteService {
     public ApiResponse<Employee> EmployeeLogin(Employee employee) {
         return this.readEmployeeDetailsFromResponse(
                 this.<Employee>performPostRequest(
-                        this.buildPath(), employee.convertToJson()
+                        this.buildPath(
+                                (new PathElementInterface[]{EmployeeApiMethod.LOGIN}), "")
+                        , employee.convertToJson()
                 )
         );
     }

@@ -27,13 +27,13 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		String password
 	*/	
 
-	private UUID record_id;
+	private UUID id;
 	public UUID getId() {
-		return this.record_id;
+		return this.id;
 	}
 
-	public Employee setId(UUID record_id) {
-		this.record_id = record_id;
+	public Employee setId(UUID id) {
+		this.id = id;
 		return this;
 	}
 
@@ -130,11 +130,14 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 	
 	@Override
 	public Employee loadFromJson(JSONObject rawJsonObject) {
-		String value = rawJsonObject.optString(EmployeeFieldName.RECORD_ID.getFieldName());
-		if (!StringUtils.isBlank(value)) {
-			this.record_id = UUID.fromString(value);
-		}
+		String value = rawJsonObject.optString(EmployeeFieldName.ID.getFieldName());
 
+		System.out.println(value);
+		if (!StringUtils.isBlank(value)) {
+			System.out.println(value);
+			this.id = UUID.fromString(value);
+
+		}
 		this.first_name = rawJsonObject.optString(EmployeeFieldName.FIRST_NAME.getFieldName());
 		this.last_name = rawJsonObject.optString(EmployeeFieldName.LAST_NAME.getFieldName());
 		this.employee_id = rawJsonObject.optString(EmployeeFieldName.EMPLOYEE_ID.getFieldName());
@@ -160,7 +163,7 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 		JSONObject jsonObject = new JSONObject();
 
 		try {
-			jsonObject.put(EmployeeFieldName.RECORD_ID.getFieldName(), this.record_id.toString());
+			jsonObject.put(EmployeeFieldName.ID.getFieldName(), this.id.toString());
 			jsonObject.put(EmployeeFieldName.FIRST_NAME.getFieldName(), this.first_name);
 			jsonObject.put(EmployeeFieldName.LAST_NAME.getFieldName(), this.last_name);
 			jsonObject.put(EmployeeFieldName.EMPLOYEE_ID.getFieldName(), this.employee_id);
@@ -178,7 +181,7 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 	
 
 	public Employee() {
-		this.record_id = new UUID(0, 0);
+		this.id = new UUID(0, 0);
 		this.first_name = "";
 		this.last_name = "";
 		this.employee_id = "";
@@ -190,7 +193,7 @@ public class Employee implements ConvertToJsonInterface, LoadFromJsonInterface<E
 	}
 
 	public Employee(EmployeeTransition employeeTransition) {
-		this.record_id = employeeTransition.getId();
+		this.id = employeeTransition.getId();
 		this.first_name = employeeTransition.getFirst_Name();
 		this.last_name = employeeTransition.getLast_Name();
 		this.employee_id = employeeTransition.getEmployee_Id();
