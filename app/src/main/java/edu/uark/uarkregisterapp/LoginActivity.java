@@ -14,6 +14,9 @@ import android.widget.EditText;
 
 import org.apache.commons.lang3.StringUtils;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
 import edu.uark.uarkregisterapp.models.api.Employee;
 import edu.uark.uarkregisterapp.models.api.services.EmployeeService;
@@ -34,9 +37,9 @@ public class LoginActivity extends AppCompatActivity {
             actionBar.setDisplayHomeAsUpEnabled(true);
         }
 
-
+        this.employees = new ArrayList<>();
         this.employeeTransition = new EmployeeTransition();
-        //TODO: Query the server to see if an initial employee must be created first.
+        (new existenceCheckTask()).execute();
     }
 
 
@@ -188,5 +191,40 @@ public class LoginActivity extends AppCompatActivity {
         }
     }
 
+
+
+    private class existenceCheckTask extends AsyncTask<Void, Void, Boolean> {
+        @Override
+        protected void onPreExecute() { }
+
+
+        //TODO: make sure Employee, EmployeeTransition and EmployeeService classes have been created.
+        //TODO: set this up for employee login usage.
+        @Override
+        protected Boolean doInBackground(Void... params) {
+            ApiResponse<List<Employee>> apiResponse = (new EmployeeService()).checkEmployeeExistence();
+
+            employees.clear();
+            employees.addAll(apiResponse.getData());
+
+            boolean existence = false;
+            if (employees.isEmpty()) {existence = true;}
+            return existence;
+        }
+
+        //Successful login sends employee data to main menu activity and kills this activity.
+        @Override
+        protected void onPostExecute(Boolean existence) {
+            if (existence) {
+                Intent intent = new Intent(getApplicationContext(), CreateEmployeeActivity.class);
+                startActivity(intent);
+                finish();
+            }
+        }
+
+        private existenceCheckTask() { }
+    }
+
     private EmployeeTransition employeeTransition;
+    private List<Employee> employees;
 }
