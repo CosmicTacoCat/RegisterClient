@@ -40,11 +40,12 @@
     <string name="intent_extra_employee">intent_extra_employee</string>
     <string name="main_menu_welcome">Welcome {Name}! What would you like to do next?</string>
     <string name="start_transaction">Start Transaction</string>
+    <string name="start_returns">Start Returns</string>
     <string name="create_employee">Create Employee</string>
     <string name="sales_report_product">Sales Report: Product</string>
     <string name="sales_report_cashier">Sales Report: Cashier</string>
     <string name="log_out">Log Out</string>
     <string name="please_create_your_first_user">Please create your first user</string>
     <string name="employee_welcome">Welcome %1$s! What would you like to do next?</string>
-    <string name="title_activity_transaction_">Transaction</string>
+    <string name="title_activity_transaction">Transaction</string>
 </resources>

@@ -51,6 +51,10 @@ public class MainMenuActivity extends AppCompatActivity {
         this.startActivity(new Intent(getApplicationContext(), TransactionActivity.class));
     }
 
+    public void ReturnsOnClick(View view) {
+        this.startActivity(new Intent(getApplicationContext(), ReturnsActivity.class));
+    }
+
     private EmployeeTransition employeeTransition;
 
     public String employee_logged_in;
