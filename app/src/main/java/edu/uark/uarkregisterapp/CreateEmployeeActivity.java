@@ -117,13 +117,13 @@ public class CreateEmployeeActivity extends AppCompatActivity {
                             : (new EmployeeService()).createEmployee(employee) //TODO undo my shit.//(new EmployeeService()).updateEmployee(employee)
             );
 
-            if (apiResponse.isValidResponse()) {
-                employeeTransition.setFirst_Name(apiResponse.getData().getFirst_Name());
-                employeeTransition.setLast_Name(apiResponse.getData().getLast_Name());
-                employeeTransition.setEmployee_Id(apiResponse.getData().getEmployee_Id());
-                employeeTransition.setPassword(apiResponse.getData().getPassword());
+            if(apiResponse.isValidResponse())
+            {
+                employeeTransition.setFirst_Name(employee.getFirst_Name());
+                employeeTransition.setLast_Name(employee.getLast_Name());
+                employeeTransition.setEmployee_Id(employee.getEmployee_Id());
+                employeeTransition.setPassword(employee.getPassword());
             }
-
             return apiResponse.isValidResponse();
         }
 
