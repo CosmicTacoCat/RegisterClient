@@ -46,6 +46,11 @@ public class MainMenuActivity extends AppCompatActivity {
     public void LogOutOnClick(View view) {
         this.startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
+
+    public void TransactionOnClick(View view) {
+        this.startActivity(new Intent(getApplicationContext(), TransactionActivity.class));
+    }
+
     private EmployeeTransition employeeTransition;
 
     public String employee_logged_in;

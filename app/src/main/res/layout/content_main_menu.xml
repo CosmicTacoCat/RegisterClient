@@ -32,7 +32,7 @@
         android:layout_marginStart="122dp"
         android:layout_marginTop="50dp"
         android:layout_marginEnd="123dp"
-        android:onClick="NoFunctionalityButtonOnClick"
+        android:onClick="TransactionOnClick"
         android:text="@string/start_transaction"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
