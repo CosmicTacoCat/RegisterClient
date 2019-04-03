@@ -52,7 +52,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void ReturnsOnClick(View view) {
-        this.startActivity(new Intent(getApplicationContext(), ReturnsActivity.class));
+       // this.startActivity(new Intent(getApplicationContext(), ReturnsActivity.class));
     }
 
     private EmployeeTransition employeeTransition;
