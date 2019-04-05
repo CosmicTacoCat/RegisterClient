@@ -21,17 +21,17 @@ import edu.uark.uarkregisterapp.models.api.Product;
 import edu.uark.uarkregisterapp.models.api.services.ProductService;
 import edu.uark.uarkregisterapp.models.transition.ProductTransition;
 
-public class TransactionActivity extends AppCompatActivity {
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_products_listing);
-        setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
+        public class TransactionActivity extends AppCompatActivity {
+            @Override
+            protected void onCreate(Bundle savedInstanceState) {
+                super.onCreate(savedInstanceState);
+                setContentView(R.layout.activity_transaction_);
+                setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
 
-        ActionBar actionBar = this.getSupportActionBar();
-        if (actionBar != null) {
-            getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-        }
+                ActionBar actionBar = this.getSupportActionBar();
+                if (actionBar != null) {
+                    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+                }
 
         this.products = new ArrayList<>();
         this.productListAdapter = new ProductListAdapter(this, this.products);
@@ -62,6 +62,14 @@ public class TransactionActivity extends AppCompatActivity {
     private ListView getProductsListView() {
         return (ListView) this.findViewById(R.id.list_view_products);
     }
+
+    public void BackOnClick(View view) {
+        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
+    }
+
+    public void ToCheckout(View view) {
+        this.startActivity(new Intent(getApplicationContext(), CheckoutActivity.class));
+            }
 
     private class RetrieveProductsTask extends AsyncTask<Void, Void, ApiResponse<List<Product>>> {
         @Override
@@ -105,14 +113,6 @@ public class TransactionActivity extends AppCompatActivity {
             }
         }
 
-        public void BackOnClick(View view) {
-            this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
-        }
-
-        private void startActivity(Intent intent) {
-        }
-
-
         private AlertDialog loadingProductsAlert;
 
         private RetrieveProductsTask() {
@@ -121,6 +121,7 @@ public class TransactionActivity extends AppCompatActivity {
                     create();
         }
     }
+
 
     private List<Product> products;
     private ProductListAdapter productListAdapter;

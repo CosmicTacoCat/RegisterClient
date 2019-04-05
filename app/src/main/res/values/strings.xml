@@ -45,7 +45,10 @@
     <string name="sales_report_product">Sales Report: Product</string>
     <string name="sales_report_cashier">Sales Report: Cashier</string>
     <string name="log_out">Log Out</string>
+    <string name="back_button">Back</string>
+    <string name="to_checkout">Checkout</string>
     <string name="please_create_your_first_user">Please create your first user</string>
     <string name="employee_welcome">Welcome %1$s! What would you like to do next?</string>
     <string name="title_activity_transaction_">Transaction</string>
+    <string name="title_activity_checkout">Checkout</string>
 </resources>
