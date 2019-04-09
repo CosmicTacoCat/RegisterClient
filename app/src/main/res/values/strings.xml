@@ -9,6 +9,7 @@
     <string name="button_save">Save</string>
     <string name="button_delete">Delete</string>
     <string name="button_dismiss">Dismiss</string>
+    <string name="button_confirm">Confirm</string>
     <string name="button_all_products">Show All Products</string>
     <string name="button_create_product">Create Product</string>
     <string name="button_login_activity">Employee Login</string>
