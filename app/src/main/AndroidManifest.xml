@@ -12,19 +12,31 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         tools:ignore="GoogleAppIndexingWarning">
+
         <activity
             android:name=".CheckoutActivity"
             android:label="@string/title_activity_checkout"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <activity
             android:name=".TransactionActivity"
             android:label="@string/title_activity_transaction_"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".CreateEmployeeActivity" />
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
+        <activity android:name=".CreateEmployeeActivity"> </activity>
+
         <activity
             android:name=".MainMenuActivity"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <activity android:name=".LandingActivity" />
+
         <activity
             android:name=".ProductsListingActivity"
             android:label="@string/title_activity_products_listing"
@@ -32,12 +44,18 @@
             android:theme="@style/AppTheme.NoActionBar">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="edu.uark.uarkregisterapp.LandingActivity" />
+                android:value="edu.uark.uarkregisterapp.LandingActivity">
+
+            </meta-data>
         </activity>
+
         <activity
             android:name=".ProductViewActivity"
             android:label="@string/title_activity_product_view"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
+
         <activity
             android:name=".LoginActivity"
             android:label="@string/title_activity_login"

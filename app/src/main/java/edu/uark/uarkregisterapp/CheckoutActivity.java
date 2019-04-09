@@ -22,6 +22,7 @@ public class CheckoutActivity extends AppCompatActivity {
         }
     }
     public void BackOnClick(View view) {
-        this.startActivity(new Intent(getApplicationContext(), TransactionActivity.class));
+//        this.startActivity(new Intent(getApplicationContext(), TransactionActivity.class));
+    finish();
     }
 }

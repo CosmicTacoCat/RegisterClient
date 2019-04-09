@@ -64,8 +64,9 @@ import edu.uark.uarkregisterapp.models.transition.ProductTransition;
     }
 
     public void BackOnClick(View view) {
-        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
-    }
+//        this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
+            finish();
+   }
 
     public void ToCheckout(View view) {
         this.startActivity(new Intent(getApplicationContext(), CheckoutActivity.class));
