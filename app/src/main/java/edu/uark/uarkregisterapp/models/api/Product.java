@@ -15,7 +15,6 @@ import edu.uark.uarkregisterapp.models.api.interfaces.ConvertToJsonInterface;
 import edu.uark.uarkregisterapp.models.api.interfaces.LoadFromJsonInterface;
 import edu.uark.uarkregisterapp.models.transition.ProductTransition;
 
-//Need to create an Employee class similar to this one
 
 public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Product> {
 	private UUID id;

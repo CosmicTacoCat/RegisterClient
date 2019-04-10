@@ -44,7 +44,7 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     public void LogOutOnClick(View view) {
-       this.startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+        this.startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 
     public void TransactionOnClick(View view) {

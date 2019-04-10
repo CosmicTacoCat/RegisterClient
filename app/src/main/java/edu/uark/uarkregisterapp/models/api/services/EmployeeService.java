@@ -103,6 +103,5 @@ public class EmployeeService extends BaseRemoteService {
         return apiResponse;
     }
 
-
     public EmployeeService() {super(ApiObject.EMPLOYEE);}
 }

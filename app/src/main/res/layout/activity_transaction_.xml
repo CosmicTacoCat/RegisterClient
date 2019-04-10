@@ -23,5 +23,6 @@
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_transaction"/>
+    <!--<include layout="@layout/content_confirm_product_selection_and_choice_and_amount"/>-->
 
 </android.support.design.widget.CoordinatorLayout>

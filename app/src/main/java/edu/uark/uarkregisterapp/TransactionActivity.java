@@ -45,21 +45,22 @@ import edu.uark.uarkregisterapp.models.transition.ProductTransition;
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
                AlertDialog.Builder dialogBuilder = new AlertDialog.Builder(TransactionActivity.this);
                LayoutInflater inflater = LayoutInflater.from(TransactionActivity.this);
-               View dialogView = inflater.inflate(R.layout.content_transaction, null);
+               View dialogView = inflater.inflate(R.layout.content_confirm_product_selection_and_choice_and_amount, null);
                dialogBuilder.setView(dialogView);
 
                final EditText edt = (EditText) dialogView.findViewById(R.id.edit_text);
 
-               dialogBuilder.setTitle("Add to cart?");
-               dialogBuilder.setMessage("ok");
+               dialogBuilder.setTitle("how many of the earls would kyle buy if kyle could buy earls?");
+                dialogBuilder.setMessage("selected product goes here");
                dialogBuilder.setPositiveButton(R.string.button_confirm,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
+
                                         dialog.dismiss();
                                     }
                                 }
                         );
-               dialogBuilder.setNegativeButton(R.string.button_dismiss,
+               dialogBuilder.setNegativeButton(R.string.button_cancel,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
                                         dialog.dismiss();
@@ -68,14 +69,6 @@ import edu.uark.uarkregisterapp.models.transition.ProductTransition;
                         );
                dialogBuilder.create();
                dialogBuilder.show();
-//                Intent intent = new Intent(getApplicationContext(), ProductViewActivity.class);
-//
-//                intent.putExtra(
-//                        getString(R.string.intent_extra_product),
-//                        new ProductTransition((Product) getProductsListView().getItemAtPosition(position))
-//                );
-
-//                startActivity(intent);
             }
         });
     }
@@ -100,6 +93,14 @@ import edu.uark.uarkregisterapp.models.transition.ProductTransition;
         this.startActivity(new Intent(getApplicationContext(), CheckoutActivity.class));
             }
 
+
+//            public void Close_popup(View view) {
+//
+//            }
+//
+//            public void Confirm_button(View view) {
+//                finish();
+//            }
     private class RetrieveProductsTask extends AsyncTask<Void, Void, ApiResponse<List<Product>>> {
         @Override
         protected void onPreExecute() {
