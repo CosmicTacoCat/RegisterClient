@@ -38,6 +38,8 @@
     <string name="validation_product_lookup_code">Product lookup code may not be empty.</string>
     <string name="validation_product_count">Product count must be a number and may not be negative.</string>
     <string name="intent_extra_product">intent_extra_product</string>
+    <string name="product_in_cart">product_in_cart</string>
+
     <string name="intent_extra_employee">intent_extra_employee</string>
     <string name="main_menu_welcome">Welcome {Name}! What would you like to do next?</string>
     <string name="start_transaction">Start Transaction</string>

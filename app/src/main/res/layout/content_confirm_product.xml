@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout
-    android:id="@+id/content_confirm_product_selection_and_choice_and_amount"
+    android:id="@+id/content_confirm_product"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -20,7 +20,8 @@
         android:id = "@+id/edit_text"
         android:layout_width= "match_parent"
         android:layout_height="50dp"
-        android:inputType="text"
+        android:inputType="number"
+        android:hint="0"
         />
 
 </RelativeLayout>

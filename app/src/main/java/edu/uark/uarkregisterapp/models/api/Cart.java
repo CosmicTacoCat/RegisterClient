@@ -28,19 +28,19 @@ public class Cart implements ConvertToJsonInterface, LoadFromJsonInterface<Cart>
         return this;
     }
 
-    private int count;
-    public int getCount() {
-        return this.count;
+    private int quantity;
+    public int getQuantity() {
+        return this.quantity;
     }
-    public Cart setCount(int count) {
-        this.count = count;
+    public Cart setQuantity(int quantity) {
+        this.quantity = quantity;
         return this;
     }
 
     @Override
     public Cart loadFromJson(JSONObject rawJsonObject) {
          this.lookupCode = rawJsonObject.optString(CartFieldName.LOOKUP_CODE.getFieldName());
-        this.count = rawJsonObject.optInt(CartFieldName.COUNT.getFieldName());
+        this.quantity = rawJsonObject.optInt(CartFieldName.QUANTITY.getFieldName());
 
         return this;
     }
@@ -50,7 +50,7 @@ public class Cart implements ConvertToJsonInterface, LoadFromJsonInterface<Cart>
 
         try {
             jsonObject.put(CartFieldName.LOOKUP_CODE.getFieldName(), this.lookupCode);
-            jsonObject.put(CartFieldName.COUNT.getFieldName(), this.count);
+            jsonObject.put(CartFieldName.QUANTITY.getFieldName(), this.quantity);
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -58,7 +58,7 @@ public class Cart implements ConvertToJsonInterface, LoadFromJsonInterface<Cart>
         return jsonObject;
     }
     public Cart(){
-        this.count = 0;
+        this.quantity = 0;
         this.lookupCode = "";
     //    this.id = cartTransition.getID();
 
