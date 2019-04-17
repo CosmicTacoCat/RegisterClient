@@ -11,12 +11,13 @@
   <component name="ChangeListManager">
     <list default="true" id="ee75789b-69d4-4d31-a4a2-9c5efc57dd55" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/MainMenuActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/MainMenuActivity.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductViewActivity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/TransactionActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/TransactionActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Cart.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/CartFieldName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/CartFieldName.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/layout/content_confirm_product_selection_and_choice_and_amount.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/content_confirm_product.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/res/values/strings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/values/strings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/ProductFieldName.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/ProductFieldName.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/transition/ProductTransition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/transition/ProductTransition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/activity_transaction_.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/activity_transaction_.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/res/layout/content_transaction.xml" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/res/layout/content_transaction.xml" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -86,28 +87,28 @@
     <session id="229691699">
       <usages-collector id="statistics.file.extensions.open">
         <counts>
-          <entry key="class" value="5" />
-          <entry key="java" value="89" />
-          <entry key="xml" value="62" />
+          <entry key="class" value="6" />
+          <entry key="java" value="95" />
+          <entry key="xml" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.open">
         <counts>
-          <entry key="CLASS" value="5" />
-          <entry key="JAVA" value="89" />
-          <entry key="XML" value="62" />
+          <entry key="CLASS" value="6" />
+          <entry key="JAVA" value="95" />
+          <entry key="XML" value="72" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.extensions.edit">
         <counts>
-          <entry key="java" value="3745" />
-          <entry key="xml" value="587" />
+          <entry key="java" value="4044" />
+          <entry key="xml" value="1203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.file.types.edit">
         <counts>
-          <entry key="JAVA" value="3745" />
-          <entry key="XML" value="587" />
+          <entry key="JAVA" value="4044" />
+          <entry key="XML" value="1203" />
         </counts>
       </usages-collector>
       <usages-collector id="statistics.lifecycle.project">
@@ -126,35 +127,39 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Cart.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
+            <state relative-caret-position="170">
+              <caret line="41" column="27" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="27" />
               <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#730#731#0" expanded="true" />
-                <element signature="e#768#769#0" expanded="true" />
-                <element signature="e#942#943#0" expanded="true" />
-                <element signature="e#978#979#0" expanded="true" />
+                <element signature="e#1187#1188#0" expanded="true" />
+                <element signature="e#1211#1212#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java">
+        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/transition/ProductTransition.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="147">
-              <caret line="76" selection-start-line="76" selection-end-line="76" />
+            <state relative-caret-position="238">
+              <caret line="37" column="37" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="37" />
+              <folding>
+                <element signature="e#856#857#0" expanded="true" />
+                <element signature="e#880#881#0" expanded="true" />
+                <element signature="e#1015#1016#0" expanded="true" />
+                <element signature="e#1039#1040#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/CartFieldName.java">
+        <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_product_view.xml">
+          <provider editor-type-id="android-designer2" />
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="119">
-              <caret line="7" selection-start-line="7" selection-end-line="7" />
+            <state relative-caret-position="63">
+              <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
             </state>
           </provider>
         </entry>
@@ -162,8 +167,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/TransactionActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="68" column="73" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="73" />
+            <state relative-caret-position="330">
+              <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
               <folding>
                 <element signature="imports" expanded="true" />
                 <element signature="e#1727#3684#0" expanded="true" />
@@ -178,57 +183,6 @@
                 <element signature="e#4188#4189#0" expanded="true" />
                 <element signature="e#5557#5816#0" expanded="true" />
                 <element signature="e#5815#5816#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="41">
-              <caret line="22633" column="44" selection-start-line="22633" selection-start-column="44" selection-end-line="22633" selection-end-column="44" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_confirm_product.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="22" column="33" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="33" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_login.xml">
-          <provider editor-type-id="android-designer2" />
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="259">
-              <caret line="47" column="42" selection-start-line="47" selection-start-column="42" selection-end-line="47" selection-end-column="42" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/LoginActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="32" column="66" selection-start-line="32" selection-start-column="8" selection-end-line="32" selection-end-column="66" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/MainMenuActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="102">
-              <caret line="21" selection-start-line="21" selection-end-line="21" />
-              <folding>
-                <element signature="imports" expanded="true" />
-                <element signature="e#2013#2054#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -274,23 +228,28 @@
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/CheckoutActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/LoginActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/services/EmployeeService.java" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/content_transaction.xml" />
-        <option value="$PROJECT_DIR$/src/main/res/layout/activity_transaction_.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/MainMenuActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/content_confirm_product_selection_and_choice_and_amount.xml" />
-        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductViewActivity.java" />
         <option value="$PROJECT_DIR$/src/main/res/values/strings.xml" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductsListingActivity.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/CartFieldName.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Cart.java" />
         <option value="$PROJECT_DIR$/src/main/res/layout/content_login.xml" />
         <option value="$PROJECT_DIR$/src/main/res/layout/content_confirm_product.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/activity_transaction_.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/ProductFieldName.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/transition/ProductTransition.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/content_product_view.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductViewActivity.java" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/content_transaction.xml" />
+        <option value="$PROJECT_DIR$/src/main/res/layout/list_view_item_transaction.xml" />
+        <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/adapters/TransactionListAdapter.java" />
         <option value="$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/TransactionActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
+  <component name="ProjectFrameBounds" extendedState="7">
     <option name="x" value="-8" />
     <option name="width" value="977" />
     <option name="height" value="1038" />
@@ -332,6 +291,20 @@
               <item name="app" type="feadf853:AndroidModuleNode" />
               <item name="java" type="edd41e36:AndroidSourceTypeNode" />
               <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="adapters" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="commands" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -341,6 +314,42 @@
               <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
               <item name="models" type="462c0819:PsiDirectoryNode" />
               <item name="api" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="enums" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="fields" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="interfaces" type="462c0819:PsiDirectoryNode" />
+            </path>
+            <path>
+              <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
+              <item name="app" type="feadf853:AndroidModuleNode" />
+              <item name="java" type="edd41e36:AndroidSourceTypeNode" />
+              <item name="uarkregisterapp" type="cbb59c9e:AndroidPsiDirectoryNode" />
+              <item name="models" type="462c0819:PsiDirectoryNode" />
+              <item name="api" type="462c0819:PsiDirectoryNode" />
+              <item name="services" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
               <item name="RegisterClient" type="1abcf292:AndroidViewProjectNode" />
@@ -375,6 +384,7 @@
   </component>
   <component name="RecentsManager">
     <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="edu.uark.uarkregisterapp.adapters" />
       <recent name="edu.uark.uarkregisterapp.models.api.fields" />
     </key>
     <key name="CopyFile.RECENT_KEYS">
@@ -488,14 +498,14 @@
       <window_info id="Build Variants" order="5" side_tool="true" />
       <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.12751678" />
       <window_info id="Captures" order="7" side_tool="true" weight="0.25" />
-      <window_info anchor="bottom" id="Logcat" order="0" weight="0.22727273" />
+      <window_info anchor="bottom" id="Logcat" order="0" weight="0.5" />
       <window_info anchor="bottom" id="TODO" order="1" weight="0.32991204" />
       <window_info anchor="bottom" id="Debug" order="2" />
       <window_info anchor="bottom" id="Terminal" order="3" weight="0.32991204" />
       <window_info anchor="bottom" id="Version Control" order="4" show_stripe_button="false" />
       <window_info anchor="bottom" id="Event Log" order="5" sideWeight="0.36107382" side_tool="true" weight="0.33431086" />
-      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.63892615" weight="0.2947214" />
-      <window_info anchor="bottom" id="Android Profiler" order="7" />
+      <window_info anchor="bottom" id="Build" order="6" sideWeight="0.63892615" weight="0.29178885" />
+      <window_info anchor="bottom" id="Android Profiler" order="7" weight="0.32991204" />
       <window_info active="true" anchor="bottom" id="Run" order="8" sideWeight="0.6353698" visible="true" weight="0.32844576" />
       <window_info anchor="bottom" id="Find" order="9" weight="0.32991204" />
       <window_info anchor="right" id="Capture Analysis" order="0" />
@@ -510,14 +520,6 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/8f63f4bdabecd649ecbb1a51e3e0b98e/jars/classes.jar!/android/support/v7/app/AppCompatActivity.class" />
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/app/Activity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1921">
-          <caret line="18" column="7" lean-forward="true" selection-start-line="18" selection-start-column="7" selection-end-line="18" selection-end-column="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/build/generated/source/buildConfig/debug/edu/uark/uarkregisterapp/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="51">
@@ -551,22 +553,6 @@
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_create_employee.xml">
       <provider selected="true" editor-type-id="android-designer2" />
       <provider editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/list_view_item_product.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="13" column="40" lean-forward="true" selection-start-line="13" selection-start-column="40" selection-end-line="13" selection-end-column="40" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_product_view.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-323">
-          <caret line="26" column="38" lean-forward="true" selection-start-line="26" selection-start-column="38" selection-end-line="26" selection-end-column="38" />
-        </state>
-      </provider>
     </entry>
     <entry file="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/design-28.0.0.aar/a3039a8e69168bec23b11a65785974b8/res/values/values.xml">
       <provider selected="true" editor-type-id="text-editor">
@@ -622,22 +608,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_main_menu.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1332">
-          <caret line="86" column="38" selection-start-line="86" selection-start-column="25" selection-end-line="86" selection-end-column="38" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_transaction_.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="26" selection-start-line="26" selection-end-line="26" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/services/ProductService.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-784">
@@ -663,13 +633,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="323">
           <caret line="193" lean-forward="true" selection-start-line="193" selection-end-line="193" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/ProductFieldName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="16" lean-forward="true" selection-start-line="16" selection-end-line="16" />
         </state>
       </provider>
     </entry>
@@ -703,17 +666,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_transaction.xml">
-      <provider editor-type-id="android-designer2" />
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="156">
-          <caret line="33" column="42" selection-start-line="33" selection-start-column="42" selection-end-line="33" selection-end-column="42" />
-          <folding>
-            <element signature="e#1404#1425#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_product_view.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -733,27 +685,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="37" column="48" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="40" column="50" selection-start-line="40" selection-start-column="50" selection-end-line="40" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/transition/ProductTransition.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="25" column="31" selection-start-line="25" selection-start-column="18" selection-end-line="25" selection-end-column="31" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductViewActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="133">
-          <caret line="120" column="51" selection-start-line="120" selection-start-column="47" selection-end-line="120" selection-end-column="51" />
         </state>
       </provider>
     </entry>
@@ -787,20 +718,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/adapters/ProductListAdapter.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="192">
-          <caret line="26" column="49" selection-start-line="26" selection-start-column="8" selection-end-line="26" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/CartFieldName.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/MainMenuActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="102">
@@ -808,20 +725,6 @@
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#2013#2054#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Cart.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="25" column="50" selection-start-line="25" selection-start-column="50" selection-end-line="25" selection-end-column="50" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#730#731#0" expanded="true" />
-            <element signature="e#768#769#0" expanded="true" />
-            <element signature="e#942#943#0" expanded="true" />
-            <element signature="e#978#979#0" expanded="true" />
           </folding>
         </state>
       </provider>
@@ -843,20 +746,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="147">
-          <caret line="76" selection-start-line="76" selection-end-line="76" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0a5fd32e54d618667a07928a2093df86/jars/classes.jar!/android/support/v7/app/AppCompatActivity.class">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="168">
-          <caret line="125" column="30" selection-start-line="125" selection-start-column="30" selection-end-line="125" selection-end-column="30" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/LoginActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
@@ -872,13 +761,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="41">
-          <caret line="22633" column="44" selection-start-line="22633" selection-start-column="44" selection-end-line="22633" selection-end-column="44" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_confirm_product.xml">
       <provider editor-type-id="android-designer2" />
       <provider selected="true" editor-type-id="text-editor">
@@ -887,10 +769,160 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/CartFieldName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Cart.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="29" selection-start-line="29" selection-end-line="29" />
+          <folding>
+            <element signature="imports" expanded="true" />
+            <element signature="e#730#731#0" expanded="true" />
+            <element signature="e#768#769#0" expanded="true" />
+            <element signature="e#942#943#0" expanded="true" />
+            <element signature="e#978#979#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_main_menu.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="14" selection-start-line="14" selection-end-line="25" selection-end-column="52" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/adapters/ProductListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="172">
+          <caret line="25" selection-end-line="46" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/fields/ProductFieldName.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="204">
+          <caret line="12" selection-start-line="12" selection-end-line="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/values/strings.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="18" column="54" selection-start-line="18" selection-start-column="54" selection-end-line="18" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/api/Product.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="41" column="27" selection-start-line="41" selection-start-column="19" selection-end-line="41" selection-end-column="27" />
+          <folding>
+            <element signature="e#1187#1188#0" expanded="true" />
+            <element signature="e#1211#1212#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/appcompat-v7-28.0.0.aar/0a5fd32e54d618667a07928a2093df86/jars/classes.jar!/android/support/v7/app/AppCompatActivity.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-291">
+          <caret line="125" column="30" selection-start-line="125" selection-start-column="30" selection-end-line="125" selection-end-column="30" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_product_view.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="63">
+          <caret line="48" column="54" selection-start-line="48" selection-start-column="54" selection-end-line="48" selection-end-column="54" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/ProductViewActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2363">
+          <caret line="174" column="56" lean-forward="true" selection-start-line="174" selection-start-column="56" selection-end-line="174" selection-end-column="56" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/models/transition/ProductTransition.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="37" column="37" selection-start-line="37" selection-start-column="29" selection-end-line="37" selection-end-column="37" />
+          <folding>
+            <element signature="e#856#857#0" expanded="true" />
+            <element signature="e#880#881#0" expanded="true" />
+            <element signature="e#1015#1016#0" expanded="true" />
+            <element signature="e#1039#1040#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/activity_transaction_.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="403">
+          <caret line="24" column="4" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="4" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$USER_HOME$/AppData/Local/Android/Sdk/sources/android-28/android/view/View.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-44">
+          <caret line="22637" column="36" selection-start-line="22637" selection-start-column="36" selection-end-line="22637" selection-end-column="36" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/list_view_item_transaction.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="165">
+          <caret line="25" column="20" selection-start-line="25" selection-start-column="20" selection-end-line="25" selection-end-column="20" />
+          <folding>
+            <element signature="e#401#441#0" expanded="true" />
+            <element signature="e#687#721#0" expanded="true" />
+            <element signature="e#995#1029#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/list_view_item_product.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="14" selection-start-line="14" selection-end-line="14" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/adapters/TransactionListAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="561">
+          <caret line="45" column="5" lean-forward="true" selection-start-line="45" selection-start-column="5" selection-end-line="45" selection-end-column="5" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/main/res/layout/content_transaction.xml">
+      <provider editor-type-id="android-designer2" />
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-19">
+          <caret line="53" column="44" selection-start-line="53" selection-start-column="44" selection-end-line="53" selection-end-column="44" />
+          <folding>
+            <element signature="e#2604#2625#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/main/java/edu/uark/uarkregisterapp/TransactionActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="68" column="73" selection-start-line="68" selection-start-column="73" selection-end-line="68" selection-end-column="73" />
+        <state relative-caret-position="330">
+          <caret line="107" lean-forward="true" selection-start-line="107" selection-end-line="107" />
           <folding>
             <element signature="imports" expanded="true" />
             <element signature="e#1727#3684#0" expanded="true" />

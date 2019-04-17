@@ -179,6 +179,7 @@ public class ProductViewActivity extends AppCompatActivity {
 
 			if (apiResponse.isValidResponse()) {
 				productTransition.setCount(apiResponse.getData().getCount());
+				productTransition.setPrice(apiResponse.getData().getPrice());
 				productTransition.setLookupCode(apiResponse.getData().getLookupCode());
 			}
 
