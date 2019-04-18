@@ -19,7 +19,7 @@ import edu.uark.uarkregisterapp.models.api.interfaces.LoadFromJsonInterface;
 //import edu.uark.uarkregisterapp.models.transition.CartTransition;
 
 
-public class Cart implements ConvertToJsonInterface, LoadFromJsonInterface<Cart>{
+public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonInterface<Cart>{
     private String lookupCode;
     public String getLookupCode() {
         return this.lookupCode;

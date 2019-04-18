@@ -43,6 +43,7 @@ public class TransactionActivity extends AppCompatActivity {
 
                 this.employeeTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_extra_employee));
                 this.products = new ArrayList<>();
+                this.cartcontents = new ArrayList<Cart>();
                 this.cartname = new ArrayList<>();
                 this.cartquantity = new ArrayList<>();
         this.transactionListAdapter = new TransactionListAdapter(this, this.products);
@@ -66,9 +67,12 @@ public class TransactionActivity extends AppCompatActivity {
                dialogBuilder.setPositiveButton(R.string.button_confirm,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        cartname.add(cart.setLookupCode(product_in_cart));
-                                       final int num = Integer.parseInt(edt.getText().toString());
-                                       cartquantity.add(cart.setQuantity(num));
+                                        //cartname.add(cart.setLookupCode(product_in_cart));
+                                        final int num = Integer.parseInt(edt.getText().toString());
+                                        //cartquantity.add(cart.setQuantity(num));
+                                        cart.setLookupCode(product_in_cart);
+                                        cart.setQuantity(num);
+                                        cartcontents.add(cart);
                                         dialog.dismiss();
                                     }
                                 }
@@ -104,8 +108,9 @@ public class TransactionActivity extends AppCompatActivity {
     public void ToCheckout(View view) {
         Intent intent = new Intent(getApplicationContext(), CheckoutActivity.class);
         intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
-          intent.putExtra("cartlistname",cartname);
-          intent.putExtra("cartlistquantity",cartquantity);
+          //intent.putExtra("cartlistname",cartname);
+          //intent.putExtra("cartlistquantity",cartquantity);
+        intent.putExtra("cartcontents", cartcontents);
           this.startActivity(intent);
             }
 
@@ -166,6 +171,7 @@ public class TransactionActivity extends AppCompatActivity {
     public String product_in_cart;
     private List<Product> products;
     private Cart cart = new Cart();
+    private ArrayList<Cart> cartcontents;
     private ArrayList<Cart> cartname;
     private ArrayList<Cart> cartquantity;
     private TransactionListAdapter transactionListAdapter;
