@@ -15,6 +15,7 @@ import android.widget.ListView;
 import android.widget.EditText;
 
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
@@ -26,6 +27,7 @@ import edu.uark.uarkregisterapp.models.api.Product;
 import edu.uark.uarkregisterapp.models.transition.ProductTransition;
 import edu.uark.uarkregisterapp.models.api.Cart;
 import edu.uark.uarkregisterapp.models.api.services.ProductService;
+import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
 
 public class TransactionActivity extends AppCompatActivity {
             @Override
@@ -39,8 +41,10 @@ public class TransactionActivity extends AppCompatActivity {
                     getSupportActionBar().setDisplayHomeAsUpEnabled(true);
                 }
 
+                this.employeeTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_extra_employee));
                 this.products = new ArrayList<>();
-                this.cartList = new ArrayList<>();
+                this.cartname = new ArrayList<>();
+                this.cartquantity = new ArrayList<>();
         this.transactionListAdapter = new TransactionListAdapter(this, this.products);
 
         this.getProductsListView().setAdapter(this.transactionListAdapter);
@@ -62,11 +66,9 @@ public class TransactionActivity extends AppCompatActivity {
                dialogBuilder.setPositiveButton(R.string.button_confirm,
                                 new DialogInterface.OnClickListener() {
                                     public void onClick(DialogInterface dialog, int id) {
-                                        cart.setLookupCode(product_in_cart);
+                                        cartname.add(cart.setLookupCode(product_in_cart));
                                        final int num = Integer.parseInt(edt.getText().toString());
-                                       cart.setQuantity(num);
-                                         cartList.add(cart);
-                                       // System.out.println(cartList.size());
+                                       cartquantity.add(cart.setQuantity(num));
                                         dialog.dismiss();
                                     }
                                 }
@@ -100,8 +102,11 @@ public class TransactionActivity extends AppCompatActivity {
    }
 
     public void ToCheckout(View view) {
-         System.out.println(cartList.size());
-        this.startActivity(new Intent(getApplicationContext(), CheckoutActivity.class));
+        Intent intent = new Intent(getApplicationContext(), CheckoutActivity.class);
+        intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);
+          intent.putExtra("cartlistname",cartname);
+          intent.putExtra("cartlistquantity",cartquantity);
+          this.startActivity(intent);
             }
 
 
@@ -157,9 +162,11 @@ public class TransactionActivity extends AppCompatActivity {
         }
     }
 
+    private EmployeeTransition employeeTransition;
     public String product_in_cart;
     private List<Product> products;
     private Cart cart = new Cart();
-    private List<Cart> cartList;
+    private ArrayList<Cart> cartname;
+    private ArrayList<Cart> cartquantity;
     private TransactionListAdapter transactionListAdapter;
 }

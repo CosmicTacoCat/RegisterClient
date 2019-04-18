@@ -1,9 +1,12 @@
 package edu.uark.uarkregisterapp.models.api;
 
+import android.os.Parcelable;
+
 import org.apache.commons.lang3.StringUtils;
 import org.json.JSONException;
 import org.json.JSONObject;
 
+import java.io.Serializable;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -17,8 +20,6 @@ import edu.uark.uarkregisterapp.models.api.interfaces.LoadFromJsonInterface;
 
 
 public class Cart implements ConvertToJsonInterface, LoadFromJsonInterface<Cart>{
-
-
     private String lookupCode;
     public String getLookupCode() {
         return this.lookupCode;

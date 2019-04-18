@@ -48,6 +48,7 @@ public class Product implements ConvertToJsonInterface, LoadFromJsonInterface<Pr
 	public int getPrice() {
 		return this.price;
 	}
+
 	public Product setPrice(int price) {
 		this.price = price;
 		return this;
