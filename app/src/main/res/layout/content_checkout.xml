@@ -38,16 +38,15 @@
         android:text= "Quantity"
         android:textStyle="bold"/>
 
-
     <ListView
-        android:id="@+id/list_view_products"
+        android:id="@+id/list_view_cart"
         android:layout_width="363dp"
         android:layout_height="400dp"
         android:layout_alignParentStart="false"
         android:layout_alignParentEnd="false"
         android:layout_marginTop = "50dp"
         android:layout_marginStart="20dp"
-        android:layout_marginEnd="20dp" />
+        android:layout_marginEnd="20dp"/>
 
     <Button
         android:id="@+id/back_button"

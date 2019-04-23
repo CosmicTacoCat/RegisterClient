@@ -6,7 +6,7 @@
               android:layout_margin="10dp">
 
     <TextView
-        android:id="@+id/list_view_item_product_lookup_code"
+        android:id="@+id/list_view_item_lookup_code"
         android:text="@string/text_view_products_lookup_code"
         android:layout_width="0dp"
         android:layout_height="fill_parent"
@@ -14,16 +14,7 @@
         android:layout_gravity="start"/>
 
     <TextView
-        android:id="@+id/list_view_item_product_count"
-        android:text="@string/text_view_products_count"
-        android:layout_width="0dp"
-        android:layout_height="fill_parent"
-        android:layout_weight="3"
-        android:gravity="end"
-        />
-
-    <TextView
-        android:id="@+id/list_view_item_product_price"
+        android:id="@+id/list_view_item_count"
         android:text="@string/text_view_products_count"
         android:layout_width="0dp"
         android:layout_height="fill_parent"

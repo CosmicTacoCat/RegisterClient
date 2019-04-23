@@ -10,8 +10,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.View;
 import android.widget.ListView;
+import android.widget.TextView;
 
 import edu.uark.uarkregisterapp.adapters.TransactionListAdapter;
+import edu.uark.uarkregisterapp.adapters.CheckoutListAdapter;
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
 import edu.uark.uarkregisterapp.models.api.Product;
 import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
@@ -29,41 +31,44 @@ public class CheckoutActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_checkout);
         setSupportActionBar((Toolbar) findViewById(R.id.toolbar));
-
-        this.employeeTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_extra_employee));
-        //this.cartname = this.getIntent().getStringArrayListExtra("cartlistname");
-        //this.cartquantity = this.getIntent().getStringArrayListExtra("carltlistquantity");
         this.cartcontents = (ArrayList<Cart>)this.getIntent().getSerializableExtra("cartcontents");
-
-        employee_logged_in = this.employeeTransition.getFirst_Name() + " " + this.employeeTransition.getLast_Name();
-
-
-        System.out.println(employee_logged_in);
-        System.out.println(cartcontents.size());
+        this.checkoutListAdapter = new CheckoutListAdapter (this, this.cartcontents);
+       this.getCartListView().setAdapter(this.checkoutListAdapter);
+        this.employeeTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_extra_employee));
+        for (int i = 0; i < cartcontents.size(); i++)
+        {
+            System.out.println(cartcontents.get(i).getLookupCode());
+        }
         ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         }
     }
 
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//        (new CheckoutActivity.RetrieveProductsTask()).execute();
-//    }
 
-    private ListView getProductsListView() {
-        return (ListView) this.findViewById(R.id.list_view_products);
+
+    private ListView getCartListView() {
+        return (ListView) this.findViewById(R.id.list_view_cart);
     }
+
 
     public void BackOnClick(View view) {
 //        this.startActivity(new Intent(getApplicationContext(), TransactionActivity.class));
     finish();
     }
     public void FinalCheckoutOnClick(View view) {
-//        this.startActivity(new Intent(getApplicationContext(), TransactionActivity.class));
-        finish();
+        for (int i =0; i < cartcontents.size(); i++)
+        {
+            cartcontents.get(i).convertToJson();
+
+        }
+
+        //this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
+
+    /*   Intent intent = new Intent(CheckoutActivity.this, MainMenuActivity.class);
+        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        startActivity(intent);*/
+      finish();
     }
     private class RetrieveProductsTask extends AsyncTask<Void, Void, ApiResponse<List<Product>>> {
         @Override
@@ -83,10 +88,10 @@ public class CheckoutActivity extends AppCompatActivity {
             return apiResponse;
         }
 
-        @Override
-        protected void onPostExecute(ApiResponse<List<Product>> apiResponse) {
+
+        protected void onPostExecute(ApiResponse<List<Cart>> apiResponse) {
             if (apiResponse.isValidResponse()) {
-                transactionListAdapter.notifyDataSetChanged();
+                checkoutListAdapter.notifyDataSetChanged();
             }
 
             this.loadingProductsAlert.dismiss();
@@ -114,6 +119,14 @@ public class CheckoutActivity extends AppCompatActivity {
                     setMessage(R.string.alert_dialog_products_loading).
                     create();
         }
+        public String getcartcontents(int i) {
+                return cartcontents.get(i).getLookupCode();
+        }
+
+        public Integer getcartcount(int i) {
+            return cartcontents.get(i).getQuantity();
+        }
+
     }
 
 
@@ -121,8 +134,10 @@ public class CheckoutActivity extends AppCompatActivity {
     public String employee_logged_in;
     private List<Product> products;
     private ArrayList<Cart> cartcontents;
-    private ArrayList<String> cartname;
-    private ArrayList<Integer> cartquantity;
+    private List<String> list;
+    private String cartname;
+    private Integer cartquantity;
+   private CheckoutListAdapter checkoutListAdapter;
     private TransactionListAdapter transactionListAdapter;
 }
 
