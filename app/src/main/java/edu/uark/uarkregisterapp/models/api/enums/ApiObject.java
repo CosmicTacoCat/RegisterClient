@@ -5,7 +5,9 @@ import edu.uark.uarkregisterapp.models.api.interfaces.PathElementInterface;
 public enum ApiObject implements PathElementInterface {
     NONE(""),
     EMPLOYEE("employee/"),
-    PRODUCT("product/");
+    PRODUCT("product/"),
+    CART("cart/");
+
 
     @Override
     public String getPathValue() {

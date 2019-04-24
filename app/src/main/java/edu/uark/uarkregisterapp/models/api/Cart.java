@@ -16,7 +16,7 @@ import java.util.UUID;
 import edu.uark.uarkregisterapp.models.api.fields.CartFieldName;
 import edu.uark.uarkregisterapp.models.api.interfaces.ConvertToJsonInterface;
 import edu.uark.uarkregisterapp.models.api.interfaces.LoadFromJsonInterface;
-//import edu.uark.uarkregisterapp.models.transition.CartTransition;
+import edu.uark.uarkregisterapp.models.transition.CartTransition;
 
 
 public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonInterface<Cart>{
@@ -61,7 +61,6 @@ public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonI
     public Cart(){
         this.quantity = 0;
         this.lookupCode = "";
-    //    this.id = cartTransition.getID();
 
     }
 }

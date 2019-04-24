@@ -12,6 +12,8 @@ import android.view.View;
 import android.widget.ListView;
 import android.widget.TextView;
 
+import org.json.JSONObject;
+
 import edu.uark.uarkregisterapp.adapters.TransactionListAdapter;
 import edu.uark.uarkregisterapp.adapters.CheckoutListAdapter;
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
@@ -59,7 +61,6 @@ public class CheckoutActivity extends AppCompatActivity {
     public void FinalCheckoutOnClick(View view) {
         for (int i =0; i < cartcontents.size(); i++)
         {
-            cartcontents.get(i).convertToJson();
 
         }
 
