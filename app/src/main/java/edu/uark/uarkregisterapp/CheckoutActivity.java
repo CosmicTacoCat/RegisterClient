@@ -59,11 +59,11 @@ public class CheckoutActivity extends AppCompatActivity {
     finish();
     }
     public void FinalCheckoutOnClick(View view) {
-        for (int i =0; i < cartcontents.size(); i++)
+      /*  for (int i =0; i < cartcontents.size(); i++)
         {
 
-        }
-
+        }*/
+        (new CheckoutActivity.SaveCartTask()).execute();
         //this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
 
     /*   Intent intent = new Intent(CheckoutActivity.this, MainMenuActivity.class);
@@ -71,7 +71,7 @@ public class CheckoutActivity extends AppCompatActivity {
         startActivity(intent);*/
       finish();
     }
-    private class RetrieveProductsTask extends AsyncTask<Void, Void, ApiResponse<List<Product>>> {
+    private class SaveCartTask extends AsyncTask<Void, Void, ApiResponse<List<Product>>> {
         @Override
         protected void onPreExecute() {
             this.loadingProductsAlert.show();
@@ -115,11 +115,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
         private AlertDialog loadingProductsAlert;
 
-        private RetrieveProductsTask() {
-            this.loadingProductsAlert = new AlertDialog.Builder(CheckoutActivity.this).
-                    setMessage(R.string.alert_dialog_products_loading).
-                    create();
-        }
+
         public String getcartcontents(int i) {
                 return cartcontents.get(i).getLookupCode();
         }
@@ -128,8 +124,14 @@ public class CheckoutActivity extends AppCompatActivity {
             return cartcontents.get(i).getQuantity();
         }
 
-    }
 
+    private SaveCartTask() {
+        this.savingCartAlert = new AlertDialog.Builder(CheckoutActivity.this).
+                setMessage("Saving Product...").
+                create();
+    }
+        private AlertDialog savingCartAlert;
+    }
 
     private EmployeeTransition employeeTransition;
     public String employee_logged_in;
