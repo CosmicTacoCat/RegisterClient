@@ -4,6 +4,7 @@ import edu.uark.uarkregisterapp.models.api.interfaces.PathElementInterface;
 
 public enum CartApiMethod implements PathElementInterface {
 	NONE(""),
+	CREATE("create"),
 	BY_LOOKUP_CODE("bylookupcode");
 
 	@Override

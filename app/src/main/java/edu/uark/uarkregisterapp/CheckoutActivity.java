@@ -21,6 +21,7 @@ import edu.uark.uarkregisterapp.models.api.Product;
 import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
 import edu.uark.uarkregisterapp.models.api.Cart;
 import edu.uark.uarkregisterapp.models.api.services.ProductService;
+import edu.uark.uarkregisterapp.models.api.services.CartService;
 import edu.uark.uarkregisterapp.R;
 import java.io.Serializable;
 import java.util.ArrayList;
@@ -59,31 +60,26 @@ public class CheckoutActivity extends AppCompatActivity {
     finish();
     }
     public void FinalCheckoutOnClick(View view) {
-      /*  for (int i =0; i < cartcontents.size(); i++)
-        {
-
-        }*/
         (new CheckoutActivity.SaveCartTask()).execute();
-        //this.startActivity(new Intent(getApplicationContext(), MainMenuActivity.class));
 
-    /*   Intent intent = new Intent(CheckoutActivity.this, MainMenuActivity.class);
-        intent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
-        startActivity(intent);*/
-      finish();
+     // finish();
     }
-    private class SaveCartTask extends AsyncTask<Void, Void, ApiResponse<List<Product>>> {
-        @Override
+    private class SaveCartTask extends AsyncTask<Void, Void, ApiResponse<List<Cart>>> {
+       @Override
         protected void onPreExecute() {
-            this.loadingProductsAlert.show();
+            loadingCartAlert = new AlertDialog.Builder(CheckoutActivity.this).
+                    setMessage("Saving cart...").
+                    create();
+            this.loadingCartAlert.show();
         }
 
         @Override
-        protected ApiResponse<List<Product>> doInBackground(Void... params) {
-            ApiResponse<List<Product>> apiResponse = (new ProductService()).getProducts();
+        protected ApiResponse<List<Cart>> doInBackground(Void... params) {
+            ApiResponse<List<Cart>> apiResponse = (new CartService()).getCart();
 
             if (apiResponse.isValidResponse()) {
-                products.clear();
-                products.addAll(apiResponse.getData());
+                cartcontents.clear();
+                cartcontents.addAll(apiResponse.getData());
             }
 
             return apiResponse;
@@ -95,11 +91,11 @@ public class CheckoutActivity extends AppCompatActivity {
                 checkoutListAdapter.notifyDataSetChanged();
             }
 
-            this.loadingProductsAlert.dismiss();
+            this.loadingCartAlert.dismiss();
 
             if (!apiResponse.isValidResponse()) {
                 new AlertDialog.Builder(CheckoutActivity.this).
-                        setMessage(R.string.alert_dialog_products_load_failure).
+                        setMessage(R.string.alert_dialog_cart_load_failure).
                         setPositiveButton(
                                 R.string.button_dismiss,
                                 new DialogInterface.OnClickListener() {
@@ -110,11 +106,15 @@ public class CheckoutActivity extends AppCompatActivity {
                         ).
                         create().
                         show();
+
             }
+            finish();
         }
 
-        private AlertDialog loadingProductsAlert;
 
+
+
+        private AlertDialog loadingCartAlert;
 
         public String getcartcontents(int i) {
                 return cartcontents.get(i).getLookupCode();
@@ -127,7 +127,7 @@ public class CheckoutActivity extends AppCompatActivity {
 
     private SaveCartTask() {
         this.savingCartAlert = new AlertDialog.Builder(CheckoutActivity.this).
-                setMessage("Saving Product...").
+                setMessage("Saving cart...").
                 create();
     }
         private AlertDialog savingCartAlert;
