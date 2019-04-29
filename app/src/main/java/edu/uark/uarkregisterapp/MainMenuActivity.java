@@ -48,6 +48,10 @@ public class MainMenuActivity extends AppCompatActivity {
         this.startActivity(new Intent(getApplicationContext(), LoginActivity.class));
     }
 
+    public  void create_employee(View view){
+        this.startActivity(new Intent(getApplicationContext(), CreateEmployeeActivity.class));
+    }
+
     public void TransactionOnClick(View view) {
         Intent intent = new Intent(getApplicationContext(), TransactionActivity.class);
         intent.putExtra( getString(R.string.intent_extra_employee), employeeTransition);

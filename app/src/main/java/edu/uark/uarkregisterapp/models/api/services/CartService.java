@@ -21,13 +21,12 @@ import edu.uark.uarkregisterapp.models.api.interfaces.PathElementInterface;
 public class CartService extends BaseRemoteService {
 
 
-	public ApiResponse<Cart> getCartByLookupCode(String cartLookupCode) {
+	public ApiResponse<Cart> createCart(Cart cart) {
 		return this.readCartDetailsFromResponse(
-			this.<Cart>performGetRequest(
+			this.<Cart>performPostRequest(
 				this.buildPath(
-					(new PathElementInterface[] { CartApiMethod.BY_LOOKUP_CODE })
-					, cartLookupCode
-				)
+					(new PathElementInterface[] { CartApiMethod.CREATE }), "")
+					, cart.convertToJson()
 			)
 		);
 	}
@@ -65,14 +64,14 @@ public class CartService extends BaseRemoteService {
 		);
 	}
 
-	public ApiResponse<Cart> createCart(Cart cart) {
+	/*public ApiResponse<Cart> createCart(Cart cart) {
 		return this.readCartDetailsFromResponse(
 			this.<Cart>performPostRequest(
 				this.buildPath()
 				, cart.convertToJson()
 			)
 		);
-	}
+	}*/
 
 
 

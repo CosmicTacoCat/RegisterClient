@@ -57,7 +57,7 @@ public class TransactionActivity extends AppCompatActivity {
 
                Product product = transactionListAdapter.getItem(position);
                product_in_cart = product.getLookupCode();
-
+                employee_id = employeeTransition.getEmployee_Id();
 
               final EditText edt = dialogView.findViewById(R.id.edit_text);
 
@@ -173,9 +173,8 @@ public class TransactionActivity extends AppCompatActivity {
     private EmployeeTransition employeeTransition;
     public String product_in_cart;
     private List<Product> products;
+    public String employee_id;
     private Cart cart;
     private ArrayList<Cart> cartcontents;
-    private ArrayList<Cart> cartname;
-    private ArrayList<Cart> cartquantity;
     private TransactionListAdapter transactionListAdapter;
 }

@@ -17,6 +17,7 @@ import org.json.JSONObject;
 import edu.uark.uarkregisterapp.adapters.TransactionListAdapter;
 import edu.uark.uarkregisterapp.adapters.CheckoutListAdapter;
 import edu.uark.uarkregisterapp.models.api.ApiResponse;
+import edu.uark.uarkregisterapp.models.api.Transaction;
 import edu.uark.uarkregisterapp.models.api.Product;
 import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
 import edu.uark.uarkregisterapp.models.api.Cart;
@@ -37,11 +38,10 @@ public class CheckoutActivity extends AppCompatActivity {
         this.cartcontents = (ArrayList<Cart>)this.getIntent().getSerializableExtra("cartcontents");
         this.checkoutListAdapter = new CheckoutListAdapter (this, this.cartcontents);
        this.getCartListView().setAdapter(this.checkoutListAdapter);
-        this.employeeTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_extra_employee));
-        for (int i = 0; i < cartcontents.size(); i++)
-        {
-            System.out.println(cartcontents.get(i).getLookupCode());
-        }
+        //this.employeeTransition = this.getIntent().getParcelableExtra(this.getString(R.string.intent_extra_employee));
+
+        this.stuff.setEmployee_Id(this.getString(R.string.intent_extra_employee));
+
         ActionBar actionBar = this.getSupportActionBar();
         if (actionBar != null) {
             getSupportActionBar().setDisplayHomeAsUpEnabled(true);
@@ -60,6 +60,7 @@ public class CheckoutActivity extends AppCompatActivity {
     finish();
     }
     public void FinalCheckoutOnClick(View view) {
+
         (new CheckoutActivity.SaveCartTask()).execute();
 
      // finish();
@@ -75,10 +76,13 @@ public class CheckoutActivity extends AppCompatActivity {
 
         @Override
         protected ApiResponse<List<Cart>> doInBackground(Void... params) {
-            ApiResponse<List<Cart>> apiResponse = (new CartService()).getCart();
+
+           ApiResponse<List<Cart>> apiResponse = (new CartService()).getCart();
 
             if (apiResponse.isValidResponse()) {
-                cartcontents.clear();
+                stuff.setCart(cartcontents);
+                //   cartcontents.clear();
+
                 cartcontents.addAll(apiResponse.getData());
             }
 
@@ -134,6 +138,7 @@ public class CheckoutActivity extends AppCompatActivity {
     }
 
     private EmployeeTransition employeeTransition;
+    private Transaction stuff;
     public String employee_logged_in;
     private List<Product> products;
     private ArrayList<Cart> cartcontents;

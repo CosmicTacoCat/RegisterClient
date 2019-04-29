@@ -14,10 +14,11 @@ import java.util.Locale;
 import java.util.UUID;
 
 import edu.uark.uarkregisterapp.models.api.fields.CartFieldName;
+import edu.uark.uarkregisterapp.models.api.fields.EmployeeFieldName;
 import edu.uark.uarkregisterapp.models.api.interfaces.ConvertToJsonInterface;
 import edu.uark.uarkregisterapp.models.api.interfaces.LoadFromJsonInterface;
 import edu.uark.uarkregisterapp.models.transition.CartTransition;
-
+import edu.uark.uarkregisterapp.models.transition.EmployeeTransition;
 
 public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonInterface<Cart>{
     private String lookupCode;
@@ -28,6 +29,7 @@ public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonI
         this.lookupCode = lookupCode;
         return this;
     }
+
 
     private int quantity;
     public int getQuantity() {
@@ -52,6 +54,7 @@ public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonI
         try {
             jsonObject.put(CartFieldName.LOOKUP_CODE.getFieldName(), this.lookupCode);
             jsonObject.put(CartFieldName.QUANTITY.getFieldName(), this.quantity);
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
@@ -61,6 +64,11 @@ public class Cart implements Serializable, ConvertToJsonInterface, LoadFromJsonI
     public Cart(){
         this.quantity = 0;
         this.lookupCode = "";
+    }
+
+    public Cart(CartTransition cartTransition) {
+        this.quantity = cartTransition.getQuantity();
+        this.lookupCode = cartTransition.getLookupCode();
 
     }
 }

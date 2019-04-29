@@ -4,7 +4,8 @@ import edu.uark.uarkregisterapp.models.api.interfaces.FieldNameInterface;
 
 public enum CartFieldName implements FieldNameInterface {
 	LOOKUP_CODE("lookupCode"),
-	QUANTITY("quantity");
+	QUANTITY("quantity"),
+	CART("cart");
 
 	private String fieldName;
 	public String getFieldName() {
