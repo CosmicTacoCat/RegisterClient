@@ -4,7 +4,10 @@ import edu.uark.uarkregisterapp.models.api.interfaces.PathElementInterface;
 
 public enum ApiObject implements PathElementInterface {
     NONE(""),
-    PRODUCT("product/");
+    EMPLOYEE("employee/"),
+    PRODUCT("product/"),
+    CART("transaction/");
+
 
     @Override
     public String getPathValue() {

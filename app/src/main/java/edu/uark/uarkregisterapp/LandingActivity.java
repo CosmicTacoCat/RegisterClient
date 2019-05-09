@@ -29,4 +29,9 @@ public class LandingActivity extends AppCompatActivity {
 
 		this.startActivity(intent);
 	}
+
+	public void employeeLoginScreenOnClick(View view) {
+		// Temporary for testing. Final version will likely use startActivityForReturn() instead.
+		this.startActivity(new Intent(getApplicationContext(), LoginActivity.class));
+	}
 }

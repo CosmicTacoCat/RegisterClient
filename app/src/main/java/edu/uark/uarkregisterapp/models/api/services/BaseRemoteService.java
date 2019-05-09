@@ -9,7 +9,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.OutputStream;
-import java.net.HttpURLConnection;
+import javax.net.ssl.HttpsURLConnection;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.UUID;
@@ -25,6 +25,10 @@ abstract class BaseRemoteService {
 
 	URL buildPath(UUID recordId) {
 		return this.buildPath((new PathElementInterface[0]), recordId.toString());
+	}
+
+	URL buildPath(String employee_id) {
+		return this.buildPath((new PathElementInterface[0]), employee_id);
 	}
 
 	URL buildPath(PathElementInterface[] pathElements, String parameterValue) {
@@ -63,15 +67,15 @@ abstract class BaseRemoteService {
 				.setMessage("Invalid network path provided.");
 		}
 
-		HttpURLConnection httpURLConnection = null;
+		HttpsURLConnection httpsURLConnection = null;
 		StringBuilder rawResponse = new StringBuilder();
 
 		try {
-			httpURLConnection = (HttpURLConnection) connectionUrl.openConnection();
-			httpURLConnection.setRequestMethod(GET_REQUEST_METHOD);
-			httpURLConnection.addRequestProperty(ACCEPT_REQUEST_PROPERTY, JSON_PAYLOAD_TYPE);
+			httpsURLConnection = (HttpsURLConnection) connectionUrl.openConnection();
+			httpsURLConnection.setRequestMethod(GET_REQUEST_METHOD);
+			httpsURLConnection.addRequestProperty(ACCEPT_REQUEST_PROPERTY, JSON_PAYLOAD_TYPE);
 
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpsURLConnection.getInputStream()));
 
 			char[] buffer = new char[1024];
 			int readCharacters = bufferedReader.read(buffer, 0, buffer.length);
@@ -82,7 +86,7 @@ abstract class BaseRemoteService {
 
 			apiResponse.setValidResponse(
 				this.isValidResponse(
-					httpURLConnection.getResponseCode()
+						httpsURLConnection.getResponseCode()
 				)
 			);
 
@@ -94,8 +98,8 @@ abstract class BaseRemoteService {
 				.setValidResponse(false)
 				.setMessage(e.getMessage());
 		} finally {
-			if (httpURLConnection != null) {
-				httpURLConnection.disconnect();
+			if (httpsURLConnection != null) {
+				httpsURLConnection.disconnect();
 			}
 		}
 
@@ -119,25 +123,25 @@ abstract class BaseRemoteService {
 				.setMessage("Invalid network path provided.");
 		}
 
-		HttpURLConnection httpURLConnection = null;
+		HttpsURLConnection httpsURLConnection = null;
 		StringBuilder rawResponse = new StringBuilder();
 
 		try {
 			byte[] serializedRequestObject = jsonObject.toString().getBytes(UTF8_CHARACTER_ENCODING);
 
-			httpURLConnection = (HttpURLConnection) connectionUrl.openConnection();
-			httpURLConnection.setDoInput(true);
-			httpURLConnection.setDoOutput(true);
-			httpURLConnection.setFixedLengthStreamingMode(serializedRequestObject.length);
-			httpURLConnection.setRequestMethod(requestType);
-			httpURLConnection.addRequestProperty(ACCEPT_REQUEST_PROPERTY, JSON_PAYLOAD_TYPE);
-			httpURLConnection.addRequestProperty(CONTENT_TYPE_REQUEST_PROPERTY, JSON_PAYLOAD_TYPE);
+			httpsURLConnection = (HttpsURLConnection) connectionUrl.openConnection();
+			httpsURLConnection.setDoInput(true);
+			httpsURLConnection.setDoOutput(true);
+			httpsURLConnection.setFixedLengthStreamingMode(serializedRequestObject.length);
+			httpsURLConnection.setRequestMethod(requestType);
+			httpsURLConnection.addRequestProperty(ACCEPT_REQUEST_PROPERTY, JSON_PAYLOAD_TYPE);
+			httpsURLConnection.addRequestProperty(CONTENT_TYPE_REQUEST_PROPERTY, JSON_PAYLOAD_TYPE);
 
-			OutputStream outputStream = httpURLConnection.getOutputStream();
+			OutputStream outputStream = httpsURLConnection.getOutputStream();
 			outputStream.write(serializedRequestObject);
 			outputStream.flush();
 
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpsURLConnection.getInputStream()));
 
 			char[] buffer = new char[1024];
 			int readCharacters = bufferedReader.read(buffer, 0, buffer.length);
@@ -148,7 +152,7 @@ abstract class BaseRemoteService {
 
 			apiResponse.setValidResponse(
 				this.isValidResponse(
-					httpURLConnection.getResponseCode()
+						httpsURLConnection.getResponseCode()
 				)
 			);
 
@@ -160,8 +164,8 @@ abstract class BaseRemoteService {
 				.setValidResponse(false)
 				.setMessage(e.getMessage());
 		} finally {
-			if (httpURLConnection != null) {
-				httpURLConnection.disconnect();
+			if (httpsURLConnection != null) {
+				httpsURLConnection.disconnect();
 			}
 		}
 
@@ -177,14 +181,14 @@ abstract class BaseRemoteService {
 				.setMessage("Invalid network path provided.");
 		}
 
-		HttpURLConnection httpURLConnection = null;
+		HttpsURLConnection httpsURLConnection = null;
 		StringBuilder rawResponse = new StringBuilder();
 
 		try {
-			httpURLConnection = (HttpURLConnection) connectionUrl.openConnection();
-			httpURLConnection.setRequestMethod(DELETE_REQUEST_METHOD);
+			httpsURLConnection = (HttpsURLConnection) connectionUrl.openConnection();
+			httpsURLConnection.setRequestMethod(DELETE_REQUEST_METHOD);
 
-			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpURLConnection.getInputStream()));
+			BufferedReader bufferedReader = new BufferedReader(new InputStreamReader(httpsURLConnection.getInputStream()));
 
 			char[] buffer = new char[1024];
 			int readCharacters = bufferedReader.read(buffer, 0, buffer.length);
@@ -195,7 +199,7 @@ abstract class BaseRemoteService {
 
 			apiResponse.setValidResponse(
 				this.isValidResponse(
-					httpURLConnection.getResponseCode()
+						httpsURLConnection.getResponseCode()
 				)
 			);
 
@@ -207,8 +211,8 @@ abstract class BaseRemoteService {
 				.setValidResponse(false)
 				.setMessage(e.getMessage());
 		} finally {
-			if (httpURLConnection != null) {
-				httpURLConnection.disconnect();
+			if (httpsURLConnection != null) {
+				httpsURLConnection.disconnect();
 			}
 		}
 
@@ -245,10 +249,10 @@ abstract class BaseRemoteService {
 
 	private boolean isValidResponse(int responseCode) {
 		return (
-			(responseCode == HttpURLConnection.HTTP_OK)
-			|| (responseCode == HttpURLConnection.HTTP_CREATED)
-			|| (responseCode == HttpURLConnection.HTTP_ACCEPTED)
-			|| (responseCode == HttpURLConnection.HTTP_NO_CONTENT)
+			(responseCode == HttpsURLConnection.HTTP_OK)
+			|| (responseCode == HttpsURLConnection.HTTP_CREATED)
+			|| (responseCode == HttpsURLConnection.HTTP_ACCEPTED)
+			|| (responseCode == HttpsURLConnection.HTTP_NO_CONTENT)
 		);
 	}
 
@@ -267,6 +271,6 @@ abstract class BaseRemoteService {
 	private static final String ACCEPT_REQUEST_PROPERTY = "Accept";
 	private static final String JSON_PAYLOAD_TYPE = "application/json";
 	private static final String CONTENT_TYPE_REQUEST_PROPERTY = "Content-Type";
-	private static final String BASE_URL = "https://uarkregserv.herokuapp.com/api/";
+	private static final String BASE_URL = "https://captains-app.herokuapp.com/api/";
 //	private static final String BASE_URL = "https://uarkregservnodejsapi.herokuapp.com/api/";
 }

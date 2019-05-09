@@ -54,6 +54,7 @@ public class ProductViewActivity extends AppCompatActivity {
 	protected void onResume() {
 		super.onResume();
 
+		// This is why the trash icon in not present when creating a product.
 		if (!this.productTransition.getId().equals(new UUID(0, 0))) {
 			this.getDeleteImageButton().setVisibility(View.VISIBLE);
 		} else {
@@ -168,6 +169,8 @@ public class ProductViewActivity extends AppCompatActivity {
 				setLookupCode(getProductLookupCodeEditText().getText().toString()).
 				setCount(Integer.parseInt(getProductCountEditText().getText().toString()));
 
+			//product id set from product transition. Check if id is equal to *default* UUID. If it is, create a product, else update the product.
+
 			ApiResponse<Product> apiResponse = (
 				(product.getId().equals(new UUID(0, 0)))
 					? (new ProductService()).createProduct(product)
@@ -176,6 +179,7 @@ public class ProductViewActivity extends AppCompatActivity {
 
 			if (apiResponse.isValidResponse()) {
 				productTransition.setCount(apiResponse.getData().getCount());
+				productTransition.setPrice(apiResponse.getData().getPrice());
 				productTransition.setLookupCode(apiResponse.getData().getLookupCode());
 			}
 

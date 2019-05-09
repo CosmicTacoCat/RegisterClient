@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    android:id="@+id/content_transaction"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:paddingBottom="@dimen/activity_vertical_margin"
+    android:paddingLeft="@dimen/activity_horizontal_margin"
+    android:paddingRight="@dimen/activity_horizontal_margin"
+    android:paddingTop="@dimen/activity_vertical_margin"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context="edu.uark.uarkregisterapp.TransactionActivity"
+    tools:showIn="@layout/activity_transaction_">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="32dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:text= "Product"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="180dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:text= "# in stock"
+        android:textStyle="bold"/>
+
+    <TextView
+        android:id="@+id/textView3"
+        android:layout_width="wrap_content"
+        android:layout_height="25dp"
+        android:layout_marginStart="300dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginEnd="32dp"
+        android:textAlignment="viewStart"
+        android:textSize="16sp"
+        android:text= "Price"
+        android:textStyle="bold"/>
+
+    <ListView
+        android:id="@+id/list_view_products"
+        android:layout_width="363dp"
+        android:layout_height="400dp"
+        android:layout_alignParentStart="false"
+        android:layout_alignParentEnd="false"
+        android:layout_marginTop = "50dp"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp" />
+
+    <Button
+        android:id="@+id/back_button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="26dp"
+        android:layout_marginTop="525dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="BackOnClick"
+        android:text="@string/back_button"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_view_products" />
+
+    <Button
+        android:id="@+id/ToCheckout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="200dp"
+        android:layout_marginTop="525dp"
+        android:layout_marginEnd="50dp"
+        android:onClick="ToCheckout"
+        android:text="@string/to_checkout"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/list_view_products" />
+
+
+</RelativeLayout>
